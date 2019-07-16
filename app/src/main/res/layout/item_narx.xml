@@ -60,8 +60,8 @@
 
         <LinearLayout
             android:id="@+id/yashil_back"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/size_35"
+            android:layout_height="@dimen/size10"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="@dimen/size_4"
             android:layout_marginBottom="@dimen/size_4"
@@ -76,12 +76,14 @@
                 android:id="@+id/soat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:paddingLeft="@dimen/size6"
                 android:textColor="@color/colorWhite"
                 android:textSize="12sp" />
             <LinearLayout
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
+                android:paddingLeft="@dimen/size_3"
+                android:paddingRight="@dimen/size_3"
+                android:paddingStart="@dimen/size6"
+                android:paddingEnd="@dimen/size12"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
 

@@ -2,7 +2,7 @@
   {
     "listNarx": [
       {
-        "narx": "85000",
+        "narx": "100000",
         "narxniKorinishi": true,
         "oplata": "200000",
         "time": "вақтни узайтириш(1 соат)",
@@ -15,7 +15,7 @@
   {
     "listNarx": [
       {
-        "narx": "85000",
+        "narx": "100000",
         "narxniKorinishi": true,
         "oplata": "650000",
         "time": "вақтни узайтириш(1 соат)",
@@ -31,7 +31,7 @@
       {
         "narx": "100000",
         "narxniKorinishi": true,
-        "oplata": "850000",
+        "oplata": "100000",
         "time": "вақтни узайтириш(1 соат)",
         "vaqt": "Vip (соат 8:00 дан 23:00 гача)"
       }
@@ -42,7 +42,7 @@
   {
     "listNarx": [
       {
-        "narx": "85000",
+        "narx": "100000",
         "narxniKorinishi": true,
         "oplata": "650000",
         "time": "вақтни узайтириш(1 соат)",

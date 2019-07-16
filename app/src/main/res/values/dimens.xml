@@ -37,4 +37,6 @@
     <dimen name="size_350">350dp</dimen>
     <dimen name="size_17">17dp</dimen>
     <dimen name="size_25">25dp</dimen>
+    <dimen name="size_3">3dp</dimen>
+    <dimen name="size_35">35dp</dimen>
 </resources>

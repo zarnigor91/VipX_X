@@ -21,8 +21,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.bumptech.glide.Glide;
 import com.example.stajxml.App;
+import com.example.stajxml.puteshest.CubeTransformer;
 import com.example.stajxml.LocaleHelper;
 import com.example.stajxml.R;
 import com.example.stajxml.tarif.TarifFragment;
@@ -33,11 +33,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.PriorityQueue;
 
-import puteshest.PuteshestAdapter;
+import com.example.stajxml.puteshest.PuteshestAdapter;
 
 public class FragmentTaksi extends Fragment {
     private static final Integer[] IMAGES = {R.drawable.advert, R.drawable.advert2, R.drawable.advert3, R.drawable.advert4};
@@ -124,7 +122,9 @@ public class FragmentTaksi extends Fragment {
             public void onClick(View v) {
                 VipTaksiAsoFragment newFragment = new VipTaksiAsoFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.for_fragments, newFragment,null);
+                transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                        R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                        .replace(R.id.for_fragments, newFragment,null);
                  if(issBack){
                 transaction.addToBackStack(null);}
                 transaction.commit();
@@ -139,12 +139,14 @@ public class FragmentTaksi extends Fragment {
             }
         });
 
+
     }
 
     private void init() {
         for (int i = 0; i < IMAGES.length; i++)
             ImagesArray.add(IMAGES[i]);
         puteshestAdapter = new PuteshestAdapter(ImagesArray, getActivity());
+        mPager.setPageTransformer(true, new CubeTransformer());
         mPager.setAdapter(puteshestAdapter);
     }
 

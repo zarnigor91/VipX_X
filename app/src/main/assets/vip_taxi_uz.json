@@ -4,41 +4,47 @@
     "name": "Tayota Prado VX 4л\"",
     "price": 210000,
     "status": "бўш",
-    "time": "Камида 2 соат"
+    "time": "Камида 2 соат",
+    "width": "8 кишилик"
   },
   {
     "car_image": 2131165313,
     "name": "Hyundai Grand Starex lux ",
     "price": 250000,
     "status": "банд",
-    "time": "Камида 2 соат"
+    "time": "Камида 2 соат",
+    "width": "4 кишилик"
   },
   {
     "car_image": 2131165369,
     "name": "Prado 2018 Vx 3л",
     "price": 230000,
     "status": "банд",
-    "time": "Камида 2 соат"
+    "time": "Камида 2 соат",
+    "width": "8 кишилик"
   },
   {
     "car_image": 2131165314,
     "name": "Hyundai 2019 Starex",
     "price": 240000,
     "status": "бўш",
-    "time": "Камида 2 соат"
+    "time": "Камида 2 соат",
+    "width": "4 кишилик"
   },
   {
     "car_image": 2131165370,
     "name": "Prado 2019 Vx 2л ",
     "price": 200000,
     "status": "банд",
-    "time": "Камида 2 соат"
+    "time": "Камида 2 соат",
+    "width": "8 кишилик"
   },
   {
     "car_image": 2131165315,
     "name": "Hyundai 2019 Starex 2",
     "price": 150000,
     "status": "бўш",
-    "time": "Камида 2 соат"
+    "time": "Камида 2 соат",
+    "width": "4 кишилик"
   }
 ]

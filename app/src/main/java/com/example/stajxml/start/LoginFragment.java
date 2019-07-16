@@ -75,9 +75,10 @@ public class LoginFragment  extends Fragment {
                 if( Prefs.instance(App.preferences).getLogin().equals( editLogin.getText().toString().trim())) {
                     ParolFragment newFragment = new ParolFragment();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.continer, newFragment);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+                    transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                            .replace(R.id.continer, newFragment)
+                   .addToBackStack(null)
+                  .commit();
                 }
                 else Toast.makeText(context, "Login xato", Toast.LENGTH_SHORT).show();
 
@@ -108,9 +109,14 @@ public class LoginFragment  extends Fragment {
         Reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RegistratsionFragment registratsionFragment=new RegistratsionFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.continer, new RegistratsionFragment())
+                transaction.replace(R.id.continer, registratsionFragment)
                         .addToBackStack(null)
+                        .setCustomAnimations( R.anim.abc_slide_in_top, R.anim.abc_slide_out_top ) // Top Fragment Animation
+                        .show( registratsionFragment )
+                        .setCustomAnimations( R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_bottom ) // Bottom Fragment Animation
+                        .show(registratsionFragment)
                         .commit();
 
             }

@@ -21,22 +21,25 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.stajxml.App;
 import com.example.stajxml.IOnclickListener;
 import com.example.stajxml.LocaleHelper;
 import com.example.stajxml.R;
-import com.example.stajxml.Sorted;
-import com.example.stajxml.SortedString;
-import com.example.stajxml.taksi.FragmentTaksi;
+import com.example.stajxml.sort.SortPriceDown;
+import com.example.stajxml.sort.SortedDownSmall;
+import com.example.stajxml.sort.SortedDownWide;
+import com.example.stajxml.sort.SortedPriceUp;
+import com.example.stajxml.sort.SortedSmall;
+import com.example.stajxml.sort.SortedUpSmall;
+import com.example.stajxml.sort.SortedUpWide;
+import com.example.stajxml.sort.SortedWide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+
 
 public class VipTaksiAsoFragment extends Fragment {
     private static int a = 0;
@@ -47,10 +50,10 @@ public class VipTaksiAsoFragment extends Fragment {
     private RadioGroup radioGroupSena, radioGroupBole;
     private ArrayList<ModelVipTaksi> listGrid;
     private  VipTaxiAdapter adapterVip;
+    private IOnclickListener listener;
+//   SearchViewListener listener1;
 
-   SearchViewListener listener;
-
-    public void setListener(SearchViewListener listener) {
+    public void setListener(IOnclickListener listener) {
         this.listener = listener;
     }
 
@@ -83,10 +86,10 @@ public class VipTaksiAsoFragment extends Fragment {
             public void onItemClick(ModelVipTaksi modelVipTaksi) {
 
             }
-        });
+        });  // vertical recyclerView
         rvtaksi.setLayoutManager(new GridLayoutManager(getContext(), 2));
         rvtaksi.setAdapter(adapterVip);
-        zagruzitVse.setOnClickListener(new View.OnClickListener() {
+        zagruzitVse.setOnClickListener(new View.OnClickListener() {  //qo`shimcha yuklash
             @Override
             public void onClick(View v) {
                 adapterVip.update1(listGrid);
@@ -94,7 +97,7 @@ public class VipTaksiAsoFragment extends Fragment {
         });
         imSwap.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {  // dialog chaqirish tugmasi
 
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(view.getContext());
                 View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_xml, null, false);
@@ -122,7 +125,7 @@ public class VipTaksiAsoFragment extends Fragment {
 
                 btPrimenit.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View v) { //saralash tugamasi
 
                         int id = radioGroupSena.getCheckedRadioButtonId();
 
@@ -130,60 +133,76 @@ public class VipTaksiAsoFragment extends Fragment {
 
                         if (id == R.id.senaUbivayu && id1 == R.id.radioBole) {
 
-                            SortDialog sortDialog = new SortDialog();
-                            SortDialog.a = 1;
+                            VipTaksiAsoFragment sortDialog = new VipTaksiAsoFragment();
+                            a=1;
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.replace(R.id.for_fragments, sortDialog, null);
+                            transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                                    R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                                    .replace(R.id.for_fragments, sortDialog, null);
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.senaUbivayu && id1 == R.id.radioMene) {
-                            SortDialog sortDialog = new SortDialog();
-                            SortDialog.a = 2;
+                            VipTaksiAsoFragment sortDialog = new VipTaksiAsoFragment();
+                            a=2;
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.replace(R.id.for_fragments, sortDialog, null);
+                            transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                                    R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                                    .replace(R.id.for_fragments, sortDialog, null);
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.senaVozras && id1 == R.id.radioMene) {
-                            SortDialog sortDialog = new SortDialog();
-                            SortDialog.a = 3;
+                            VipTaksiAsoFragment sortDialog = new VipTaksiAsoFragment();
+                            a=3;
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.replace(R.id.for_fragments, sortDialog, null);
+                            transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                                    R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                                    .replace(R.id.for_fragments, sortDialog, null);
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.senaVozras && id1 == R.id.radioBole) {
                             VipTaksiAsoFragment sortDialog = new VipTaksiAsoFragment();
-                              b=1;
+                              a=4;
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.replace(R.id.for_fragments, sortDialog, null);
+                            transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                                    R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                                    .replace(R.id.for_fragments, sortDialog, null);
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.senaVozras) {
                             a=6;
                             VipTaksiAsoFragment sortDialog = new VipTaksiAsoFragment();
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.replace(R.id.for_fragments, sortDialog, null);
+                            transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                                    R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                                    .replace(R.id.for_fragments, sortDialog, null);
                             transaction.addToBackStack(null);
                             transaction.commit();
 
                         } else if (id == R.id.senaUbivayu) {
-                            SortDialog sortDialog = new SortDialog();
-                            SortDialog.a = 5;
+                            VipTaksiAsoFragment sortDialog = new VipTaksiAsoFragment();
+                            a=5;
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.replace(R.id.for_fragments, sortDialog, null);
+                            transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                                    R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                                    .replace(R.id.for_fragments, sortDialog, null);
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.radioMene) {
-                            SortDialog sortDialog = new SortDialog();
-                            SortDialog.a = 7;
+                            VipTaksiAsoFragment sortDialog = new VipTaksiAsoFragment();
+                            a=7;
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.replace(R.id.for_fragments, sortDialog, null);
+                            transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                                    R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                                    .replace(R.id.for_fragments, sortDialog, null);
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.radioBole) {
-                            SortDialog sortDialog = new SortDialog();
-                            SortDialog.a = 8;
+                            VipTaksiAsoFragment sortDialog = new VipTaksiAsoFragment();
+                            a=8;
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.replace(R.id.for_fragments, sortDialog, null);
+                            transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                                    R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                                    .replace(R.id.for_fragments, sortDialog, null);
                             transaction.addToBackStack(null);
                             transaction.commit();
                         }
@@ -193,13 +212,13 @@ public class VipTaksiAsoFragment extends Fragment {
 
             }
         });
-        sortType(a,b);
+        sortType(a);
         rvtaksi.setAdapter(adapterVip);
 
     }
 
 
-    private ArrayList<ModelVipTaksi> loadModelVipTaxiFromAsset() {
+    private ArrayList<ModelVipTaksi> loadModelVipTaxiFromAsset() { //jsonni pars qilish
         InputStream in=null;
 
         try {
@@ -229,10 +248,30 @@ public class VipTaksiAsoFragment extends Fragment {
 
 
 
-    public void sortType(int a, int b) {
+    public void sortType(int a) {     //saralash funksiyalari
 
+
+        if (a==1){
+            Collections.sort(listGrid, new SortedDownWide());
+        }
+        else
+        if (a==2){
+            Collections.sort(listGrid, new SortedDownSmall());
+        }
+        else
+        if (a==3){
+            Collections.sort(listGrid, new SortedUpSmall());
+        }
+        else
+        if (a==4){
+            Collections.sort(listGrid, new SortedUpWide());
+        }
+        else
+        if (a==5){
+            Collections.sort(listGrid, new SortPriceDown());
+        }
         if (a == 6) {
-            Collections.sort(listGrid, new Sorted(){
+            Collections.sort(listGrid, new SortedPriceUp(){
                 @Override
                 public int compare(ModelVipTaksi o1, ModelVipTaksi o2) {
                     return o1.getPrice()- o2.getPrice();
@@ -240,19 +279,19 @@ public class VipTaksiAsoFragment extends Fragment {
             });
 
         }
-        if (b==1){
-            Collections.sort(listGrid, new SortedString(){
-                @Override
-                public int compare(ModelVipTaksi o1, ModelVipTaksi o2) {
-                    return o1.getName().compareTo(o2.getName());
-                }
-            });
-        }
 
-        Log.d("TTT", "Sorted");
+        else
+        if (a==7){
+            Collections.sort(listGrid, new SortedSmall());
+        }
+        else
+        if (a==8){
+            Collections.sort(listGrid, new SortedWide());
+        }
+        Log.d("TTT", "SortedPriceUp");
     }
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {  // qidiruv funksiyasi
         super.onCreateOptionsMenu(menu, inflater);
         menu.clear();
 
@@ -263,17 +302,17 @@ public class VipTaksiAsoFragment extends Fragment {
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
-                listener.onClick(0);
+                listener.onClick(1);
                 return false;
             }
         });
 
-        searchView.setOnSearchClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onClick(2);
-            }
-        });
+//        searchView.setOnSearchClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                listener.onClick(1);
+//            }
+//        });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
@@ -293,8 +332,8 @@ public class VipTaksiAsoFragment extends Fragment {
 
         });
     }
-    public interface SearchViewListener{
-        void onClick(int positon);
-    }
+//    public interface SearchViewListener{
+//        void onClick(int positon);
+//    }
 
 }

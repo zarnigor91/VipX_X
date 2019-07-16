@@ -83,7 +83,9 @@ public class HomeActivity extends BaseActivity
 
         FragmentTaksi fragmentTaksi = new FragmentTaksi();
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.for_fragments, fragmentTaksi).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+            .add(R.id.for_fragments, fragmentTaksi).addToBackStack(null).commit();
         }
 
         initNavigationMenu();
@@ -100,18 +102,18 @@ public class HomeActivity extends BaseActivity
                 }
             }
         });
-        VipTaksiAsoFragment vipTaksiAsoFragment=new VipTaksiAsoFragment();
-        vipTaksiAsoFragment.setListener(new VipTaksiAsoFragment.SearchViewListener() {
-            @Override
-            public void onClick(int positon) {
-                if (positon == 0){
-                    findViewById(R.id.image_logo).setVisibility(View.VISIBLE);
-                }else {
-                    findViewById(R.id.image_logo).setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-    }
+//        VipTaksiAsoFragment vipTaksiAsoFragment=new VipTaksiAsoFragment();
+//        vipTaksiAsoFragment.setListener(new VipTaksiAsoFragment.SearchViewListener() {
+//            @Override
+//            public void onClick(int positon) {
+//                if (positon == 0){
+//                    findViewById(R.id.image_logo).setVisibility(View.VISIBLE);
+//                }else {
+//                    findViewById(R.id.image_logo).setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+   }
 
     @Override
     protected void onStart() {
@@ -249,10 +251,10 @@ public class HomeActivity extends BaseActivity
 
     @Override
     public void onClick(int positon) {
-//        if (positon == 0){
-//            findViewById(R.id.image_logo).setVisibility(View.VISIBLE);
-//        }else {
-//            findViewById(R.id.image_logo).setVisibility(View.INVISIBLE);
-//        }
+        if (positon == 0){
+            findViewById(R.id.image_logo).setVisibility(View.INVISIBLE);
+        }else {
+            findViewById(R.id.image_logo).setVisibility(View.VISIBLE);
+        }
     }
 }

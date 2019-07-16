@@ -19,8 +19,6 @@ import com.example.stajxml.App;
 import com.example.stajxml.GravitySnapHelper;
 import com.example.stajxml.LocaleHelper;
 import com.example.stajxml.R;
-import com.example.stajxml.ZakazFragment;
-import com.example.stajxml.taksi.ModelTaksi;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -66,7 +64,9 @@ public class TarifFragment extends Fragment {
             public void onClick(View v) {
                 ZakazFragment newFragment = new ZakazFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.for_fragments, newFragment);
+                transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                        R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                        .replace(R.id.for_fragments, newFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

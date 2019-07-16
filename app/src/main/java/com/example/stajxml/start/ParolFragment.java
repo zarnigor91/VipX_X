@@ -32,7 +32,6 @@ public class ParolFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.parol_xml,container,false);
         prodol = view.findViewById(R.id.prodoljit2);
-
         prodol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

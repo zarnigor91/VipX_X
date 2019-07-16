@@ -98,6 +98,8 @@ public class VipTaxiAdapter extends RecyclerView.Adapter<VipTaxiAdapter.VH> {
         TextView price;
         TextView name;
         TextView time;
+        TextView ot;
+        TextView dan;
 
 
         public VH(@NonNull final View itemView) {
@@ -105,9 +107,10 @@ public class VipTaxiAdapter extends RecyclerView.Adapter<VipTaxiAdapter.VH> {
             carImage=itemView.findViewById(R.id.car_image);
             name=itemView.findViewById(R.id.car_name);
             price=itemView.findViewById(R.id.car_price);
-
+            ot=itemView.findViewById(R.id.tvOt);
             status=itemView.findViewById(R.id.car_status);
             time=itemView.findViewById(R.id.car_time);
+//            dan=itemView.findViewById(R.id.dan);
 
         }
 
@@ -120,10 +123,11 @@ public class VipTaxiAdapter extends RecyclerView.Adapter<VipTaxiAdapter.VH> {
             if(LocaleHelper.getLanguage(App.getInstance()).equals("uz")){
             if (modelTaksi.getStatus().equals("бўш")){
                 status.setBackground(context.getResources().getDrawable(R.drawable.status_background1));
+
             }else {
                 status.setBackground(context.getResources().getDrawable(R.drawable.status_background2));
             }
-
+                ot.setVisibility(View.INVISIBLE);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -137,7 +141,7 @@ public class VipTaxiAdapter extends RecyclerView.Adapter<VipTaxiAdapter.VH> {
                 }else {
                     status.setBackground(context.getResources().getDrawable(R.drawable.status_background2));
                 }
-
+                dan.setVisibility(View.INVISIBLE);
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

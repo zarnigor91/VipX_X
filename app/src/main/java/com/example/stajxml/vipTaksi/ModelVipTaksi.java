@@ -18,14 +18,17 @@ public class ModelVipTaksi {
     private int price;
     private String name;
     private String time;
+    private String width;
 
-    public ModelVipTaksi(int carImage, String status,String name,  int price, String time) {
+
+    public ModelVipTaksi(int carImage, String status,String name,  int price, String time, String width) {
         this.carImage = carImage;
         this.status = status;
 
         this.price = price;
         this.name = name;
         this.time = time;
+        this.width=width;
     }
 
 
@@ -49,6 +52,11 @@ public class ModelVipTaksi {
     public String getTime() {
         return time;
     }
+
+    public String getWidth() {
+        return width;
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public boolean equals(Object o) {
