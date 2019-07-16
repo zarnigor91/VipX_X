@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/size9"
+    android:layout_margin="@dimen/size9">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:orientation="vertical"
+       android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tarf"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorYellow"
+       android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        android:padding="@dimen/size9"/>
+
+    <TextView
+        android:id="@+id/den"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+
+        android:padding="@dimen/size9"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_type_tarif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+   </LinearLayout>
+</androidx.cardview.widget.CardView>

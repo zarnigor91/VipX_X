@@ -1,0 +1,143 @@
+[
+  {
+    "listNarx": [
+      {
+        "narx": "85000",
+        "narxniKorinishi": true,
+        "oplata": "200000",
+        "time": "продление(1 час)",
+        "vaqt": "до 2-x часов"
+      }
+    ],
+    "place": "почасовая оплате",
+    "tarif": " Тариф (Vip такси)"
+  },
+  {
+    "listNarx": [
+      {
+        "narx": "85000",
+        "narxniKorinishi": true,
+        "oplata": "650000",
+        "time": "продление(1 час)",
+        "vaqt": "Днем (c 9:00 do 19:00)"
+      },
+      {
+        "narx": "100000",
+        "narxniKorinishi": true,
+        "oplata": "200000",
+        "time": "продление(1 час)",
+        "vaqt": "Ночю (c 18:00 do 08:00)"
+      },
+      {
+        "narx": "100000",
+        "narxniKorinishi": true,
+        "oplata": "850000",
+        "time": "продление(1 час)",
+        "vaqt": "Вип (c 8:00 do 23:00)"
+      }
+    ],
+    "place": "",
+    "tarif": " Тариф (Город Vip)"
+  },
+  {
+    "listNarx": [
+      {
+        "narx": "85000",
+        "narxniKorinishi": true,
+        "oplata": "650000",
+        "time": "продление(1 час)",
+        "vaqt": "До 2-x часов"
+      }
+    ],
+    "place": "Aэрапот-отель, отель-аэрапорт",
+    "tarif": " Трансфер"
+  },
+  {
+    "listNarx": [
+      {
+        "narx": "100000",
+        "narxniKorinishi": true,
+        "oplata": "500000",
+        "time": "продление(1 час)",
+        "vaqt": "Дo 4-x часов"
+      }
+    ],
+    "place": "Город Ташкент",
+    "tarif": " Тариф Свадьба"
+  },
+  {
+    "listNarx": [
+      {
+        "narx": "100000",
+        "narxniKorinishi": true,
+        "oplata": "150000",
+        "time": "продление(1 час)",
+        "vaqt": "Дo 2-x часов"
+      }
+    ],
+    "place": "Город Ташкент",
+    "tarif": " Город Vip"
+  },
+  {
+    "listNarx": [
+      {
+        "narx": "",
+        "narxniKorinishi": false,
+        "oplata": "1700000",
+        "time": "",
+        "vaqt": "Самарканд (1 день)"
+      },
+      {
+        "narx": "",
+        "narxniKorinishi": false,
+        "oplata": "3000000",
+        "time": "",
+        "vaqt": "Самарканд-Бухара(2 дня)"
+      },
+      {
+        "narx": "",
+        "narxniKorinishi": false,
+        "oplata": "3800000",
+        "time": "",
+        "vaqt": "Самарканд-Бухара(5 дней)"
+      },
+      {
+        "narx": "",
+        "narxniKorinishi": false,
+        "oplata": "2200000",
+        "time": "",
+        "vaqt": "Фергона(1 день)"
+      },
+      {
+        "narx": "",
+        "narxniKorinishi": false,
+        "oplata": "2200000",
+        "time": "",
+        "vaqt": "Наманган(1 день)"
+      },
+      {
+        "narx": "",
+        "narxniKorinishi": false,
+        "oplata": "1700000",
+        "time": "",
+        "vaqt": "Коканд(1 день)"
+      },
+      {
+        "narx": "",
+        "narxniKorinishi": false,
+        "oplata": "3000000",
+        "time": "",
+        "vaqt": "Андижан(1 день)"
+      },
+      {
+        "narx": "",
+        "narxniKorinishi": false,
+        "oplata": "3400000",
+        "time": "",
+        "vaqt": "Поездки в долину(2 дня)"
+      }
+    ],
+    "place": "",
+    "tarif": "Тариф (Город Vip)"
+  }
+]

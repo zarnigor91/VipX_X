@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/size9"
+    app:cardCornerRadius="@dimen/size9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_220"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/car_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/layout_back"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/car_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FF0000"
+                android:paddingLeft="@dimen/size_4"
+                android:paddingTop="@dimen/size_2"
+                android:paddingRight="@dimen/size_4"
+                android:paddingBottom="@dimen/size_2"
+                android:textColor="#fff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size1"
+          android:paddingEnd="@dimen/size_12"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/car_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/size6">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#f5d24a"
+                    android:textSize="16sp"
+                    android:text="@string/ot"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/car_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#f5d24a"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#f5d24a"
+                    android:textSize="16sp"
+                    android:text="@string/sum"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/car_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/size_4"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

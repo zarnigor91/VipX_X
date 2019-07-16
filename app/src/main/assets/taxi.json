@@ -1,0 +1,31 @@
+[{
+  "image": 2131165286,
+  "image_checked": 2131165284,
+  "is_checked": false,
+  "text": "Vip такси"
+},
+  {
+    "image": 2131165289,
+    "image_checked": 2131165287,
+    "is_checked": false,
+    "text": "Внедорожники"
+  },
+  {
+    "image": 2131165292,
+    "image_checked": 2131165290,
+    "is_checked": false,
+    "text": "Vip авто"
+  },
+  {
+    "image": 2131165295,
+    "image_checked": 2131165293,
+    "is_checked": false,
+    "text": "Путешествий на машине"
+  },
+  {
+    "image": 2131165298,
+    "image_checked": 2131165296,
+    "is_checked": false,
+    "text": "Авто на свадбу"
+  }
+]

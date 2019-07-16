@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintWidth_percent="0.9"
+    app:layout_constraintHeight_percent="0.9"
+    android:background="@color/colorBlack"
+    android:orientation="vertical"
+    android:scrollbars="vertical">
+
+    <!--<com.google.android.material.appbar.AppBarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
+
+        <!--<androidx.appcompat.widget.Toolbar-->
+            <!--android:id="@+id/toolbar"-->
+
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="@color/colorBlack1">-->
+
+
+            <!--<LinearLayout-->
+                <!--android:gravity="center"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/image_logo"-->
+                    <!--android:layout_marginRight="20dp"-->
+                    <!--android:layout_width="50dp"-->
+                    <!--android:src="@drawable/logo"-->
+                    <!--android:layout_height="wrap_content" />-->
+            <!--</LinearLayout>-->
+
+        <!--</androidx.appcompat.widget.Toolbar>-->
+
+    <!--</com.google.android.material.appbar.AppBarLayout>-->
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.9"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="12"
+            android:paddingLeft="@dimen/size6"
+            android:paddingRight="@dimen/size6">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/im_rv_Vip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size6"
+                android:paddingRight="@dimen/size9"
+                android:layout_marginTop="@dimen/size6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewPager"
+                android:layout_marginStart="3dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/rvM"
+                android:paddingRight="@dimen/size9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@+id/im_rv_Vip" />
+
+            <Button
+                android:id="@+id/zagVse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                android:layout_marginTop="@dimen/size1"
+                android:background="@drawable/cricle_yellow"
+                android:gravity="center"
+                android:text="@string/zagruzit_vse"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/rvM" />
+
+            <!--<Button-->
+            <!--android:id="@+id/tvVsetak"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:background="@drawable/cricle_black"-->
+            <!--android:gravity="center"-->
+            <!--android:text="все вип такси->"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="@color/colorGrey"-->
+            <!--android:textSize="20sp"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/zag" />-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/prodoljit1"
+                android:layout_marginLeft="@dimen/size9"
+                android:layout_marginTop="@dimen/size11"
+                android:layout_marginRight="@dimen/size9"
+                android:layout_marginBottom="@dimen/size9"
+                android:background="@drawable/cricle_black">
+
+                <TextView
+                    android:id="@+id/tvVsetak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:textSize="20sp"
+                    android:paddingTop="@dimen/size9"
+                    android:paddingBottom="@dimen/size9"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/prodoljit_image"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    android:text="@string/vse_vip_taxi"
+                    android:textColor="@color/colorGrey"/>
+
+                <ImageView
+                    android:id="@+id/prodoljit_image"
+                    android:layout_width="@dimen/size10"
+                    android:layout_height="0dp"
+                    android:paddingTop="@dimen/size6"
+                    android:paddingBottom="@dimen/size6"
+
+                    app:layout_constraintBottom_toBottomOf="@id/tvVsetak"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvVsetak"
+                    app:layout_constraintLeft_toRightOf="@id/tvVsetak"
+                    android:src="@drawable/icon_arrow_right"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

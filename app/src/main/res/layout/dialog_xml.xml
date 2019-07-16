@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/colorYellow">
+
+        <TextView
+            android:id="@+id/filter_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size10"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/size1"
+            android:text="Фильтр"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="@dimen/size_40"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_alignEnd="@id/filter_dialog"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/size1"
+            android:src="@drawable/ic_close" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/radiogroup_sena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size1"
+            android:layout_marginTop="@dimen/size1"
+            android:layout_marginRight="@dimen/size1">
+            <RadioButton
+                android:id="@+id/senaUbivayu"
+                android:layoutDirection="rtl"
+                android:text="@string/sena_ubivayu"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/size1"
+                android:shadowColor="@color/colorYellow" />
+            <RadioButton
+                android:id="@+id/senaVozras"
+                android:layoutDirection="rtl"
+                android:text="@string/sena_vozrastaniyu"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/size1"
+                android:shadowColor="@color/colorYellow" />
+        </RadioGroup>
+        <RadioGroup
+            android:id="@+id/radiogroup_bol"
+            android:background="#F2F2F2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/size1"
+            android:paddingRight="@dimen/size1">
+            <RadioButton
+                android:id="@+id/radioBole"
+                android:layoutDirection="rtl"
+                android:text="@string/bole_vmestitel"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/size1"
+                android:shadowColor="@color/colorYellow" />
+            <RadioButton
+                android:id="@+id/radioMene"
+                android:layoutDirection="rtl"
+                android:text="@string/mene_vmestitel"
+                android:textSize="20sp"
+                android:paddingBottom="@dimen/size1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shadowColor="@color/colorYellow" />
+        </RadioGroup>
+
+
+
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size1"
+        android:layout_marginRight="@dimen/size1"
+        android:textSize="20sp"
+        android:paddingBottom="@dimen/size1"
+        android:checked="true"
+        android:text="@string/kondensaner"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size8"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/size1">
+
+        <Button
+            android:id="@+id/primenit"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size7"
+            android:layout_weight="1"
+            android:background="@drawable/cricle_yellow"
+            android:gravity="center"
+            android:text="@string/primenit"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/otmena"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size7"
+            android:layout_marginBottom="@dimen/size1"
+            android:layout_weight="1"
+            android:background="@drawable/circle_non"
+            android:gravity="center"
+            android:text="@string/otmena"
+            android:textAlignment="center"
+            android:textColor="@color/colorGrey"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+
+</LinearLayout>
+
+</LinearLayout>

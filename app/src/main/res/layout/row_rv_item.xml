@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/size_280"
+    android:layout_height="@dimen/size_100"
+    android:layout_margin="@dimen/size_4"
+    android:orientation="horizontal"
+    android:weightSum="4"
+    app:cardCornerRadius="@dimen/size9">
+
+    <LinearLayout
+        android:id="@+id/holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imtak"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/taksitv"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_100"
+            android:layout_weight="2.5"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/size9"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

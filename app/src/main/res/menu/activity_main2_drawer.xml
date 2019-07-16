@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/sob"
+            android:icon="@drawable/ic_assignment_sobsheniya"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/zak"
+
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/tarif"
+            android:icon="@drawable/ic_local"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/dob"
+            android:icon="@drawable/spam"
+            android:title="@string/menu_tools" />
+        <item
+            android:id="@+id/infor"
+            android:icon="@drawable/info"
+            android:title="@string/menu_share" />
+    </group>
+
+</menu>

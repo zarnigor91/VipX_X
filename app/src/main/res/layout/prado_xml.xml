@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="@dimen/size6"
+        android:paddingRight="@dimen/size6"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size8"
+            android:paddingLeft="@dimen/size1"
+
+            android:textColor="@color/colorWhite"
+            android:text="Tayota Prado Vx 4l"
+            android:textSize="@dimen/size1" />
+
+        <Button
+            android:layout_width="@dimen/size10"
+            android:layout_height="@dimen/size1"
+             android:layout_marginLeft="@dimen/size_5"
+            android:background="@drawable/shape_green"
+    android:textColor="@color/colorWhite"
+            android:textSize="@dimen/size6"
+             android:layout_marginBottom="@dimen/size6"
+            android:text="@string/svaboden" />
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/rv_arenda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+        </androidx.recyclerview.widget.RecyclerView>
+        <LinearLayout
+            android:paddingLeft="@dimen/size_2"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/size7"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size6"
+                android:src="@drawable/ic_watch" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/size6"
+                android:paddingLeft="@dimen/size_5"
+                android:text="@string/minimal_zakaz"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/size7"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size6"
+                android:src="@drawable/ic_person1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/size6"
+                android:text="@string/mest_salon"
+                android:paddingLeft="@dimen/size_5"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/size7"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size6"
+                android:src="@drawable/ic_picture" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/size6"
+                android:paddingLeft="@dimen/size_5"
+                android:text="@string/forma_oplata"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"/>
+
+        </LinearLayout>
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tarif_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/zakazat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cricle_yellow"
+            android:gravity="center"
+            style="@style/ButtonStyle"
+            android:fontFamily="@font/roboto"
+            android:text="@string/zakazat"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+
