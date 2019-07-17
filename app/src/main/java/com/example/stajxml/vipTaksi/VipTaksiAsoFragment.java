@@ -33,6 +33,7 @@ import com.example.stajxml.sort.SortedSmall;
 import com.example.stajxml.sort.SortedUpSmall;
 import com.example.stajxml.sort.SortedUpWide;
 import com.example.stajxml.sort.SortedWide;
+import com.example.stajxml.tarif.TarifFragment;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
@@ -83,10 +84,18 @@ public class VipTaksiAsoFragment extends Fragment {
      listGrid = loadModelVipTaxiFromAsset();
        adapterVip = new VipTaxiAdapter(listGrid, getContext(), new VipTaxiAdapter.ItemClickListener() {
             @Override
-            public void onItemClick(ModelVipTaksi modelVipTaksi) {
-
+            public void onItemClick(ModelVipTaksi modelVipTaksi) {   //vertical recycler
+                TarifFragment tarifFragment = new TarifFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                        R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                        .replace(R.id.for_fragments, tarifFragment,null)
+               .addToBackStack(null);
+                transaction.commit();
             }
-        });  // vertical recyclerView
+        });
+
+       // vertical recyclerView
         rvtaksi.setLayoutManager(new GridLayoutManager(getContext(), 2));
         rvtaksi.setAdapter(adapterVip);
         zagruzitVse.setOnClickListener(new View.OnClickListener() {  //qo`shimcha yuklash
