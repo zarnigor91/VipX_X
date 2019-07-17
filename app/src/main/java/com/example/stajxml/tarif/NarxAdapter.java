@@ -1,7 +1,6 @@
 package com.example.stajxml.tarif;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,12 +27,12 @@ public class NarxAdapter extends RecyclerView.Adapter<NarxAdapter.VH> {
     @NonNull
     @Override
     public NarxAdapter.VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new VH(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_narx,parent,false));
+        return new VH(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_narx, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull NarxAdapter.VH holder, int position) {
-        NarxModel model=list.get(position);
+        NarxModel model = list.get(position);
         holder.bind(model);
 
     }
@@ -43,7 +42,7 @@ public class NarxAdapter extends RecyclerView.Adapter<NarxAdapter.VH> {
         return list.size();
     }
 
-    public class VH extends RecyclerView.ViewHolder{
+    public class VH extends RecyclerView.ViewHolder {
 
         TextView vaqt;
         TextView oplata;
@@ -65,11 +64,11 @@ public class NarxAdapter extends RecyclerView.Adapter<NarxAdapter.VH> {
             vaqt.setText(model.getVaqt());
             oplata.setText(RjexNumber.StringToString(model.getOplata()));
 
-            if (model.getNarxniKorinishi()){
+            if (model.getNarxniKorinishi()) {
                 soat.setText(model.getTime());
                 narx.setText(RjexNumber.StringToString(model.getNarx()));
 
-            }else {
+            } else {
                 background.setVisibility(View.INVISIBLE);
             }
         }

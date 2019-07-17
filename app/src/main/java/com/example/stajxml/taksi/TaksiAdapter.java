@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.stajxml.R;
 
 import java.util.ArrayList;
-import java.util.IllegalFormatCodePointException;
+
 
 public class TaksiAdapter extends RecyclerView.Adapter<TaksiAdapter.VH> {
     private ArrayList<ModelTaksi> list;
@@ -51,7 +51,7 @@ public class TaksiAdapter extends RecyclerView.Adapter<TaksiAdapter.VH> {
             }
         });
 
-        if (position == 0 && !firstSee){
+        if (position == 0 && !firstSee) {
             holder.imag.setImageResource(modelTaksi.getImage());
             holder.holder.setBackgroundColor(Color.rgb(255, 255, 255));
             firstSee = true;
@@ -60,12 +60,12 @@ public class TaksiAdapter extends RecyclerView.Adapter<TaksiAdapter.VH> {
             itemPosition = 0;
         }
 
-        if (modelTaksi.isChecked()){
+        if (modelTaksi.isChecked()) {     //   taxi load check
             holder.imag.setImageResource(modelTaksi.getImage());
             holder.holder.setBackgroundColor(Color.rgb(255, 255, 255));
             modelTaksi.setIscChecked(true);
             holder.textTaksi.setTextColor(context.getResources().getColor(R.color.colorBlack));
-        }else {
+        } else {
             holder.imag.setImageResource(modelTaksi.getImageChecked());
             holder.holder.setBackgroundResource(R.drawable.background_tegma);
             modelTaksi.setIscChecked(false);
@@ -77,7 +77,7 @@ public class TaksiAdapter extends RecyclerView.Adapter<TaksiAdapter.VH> {
         holder.holder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (itemPosition != -1){
+                if (itemPosition != -1) {
                     list.get(itemPosition).setIscChecked(false);
                     modelTaksi.setIscChecked(true);
                     notifyDataSetChanged();
@@ -87,7 +87,6 @@ public class TaksiAdapter extends RecyclerView.Adapter<TaksiAdapter.VH> {
         });
 
     }
-
 
 
     @Override

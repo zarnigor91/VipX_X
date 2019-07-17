@@ -1,8 +1,6 @@
 package com.example.stajxml.tarif;
 
 import android.content.Context;
-import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,13 +15,13 @@ import com.example.stajxml.R;
 import java.util.ArrayList;
 
 public class PradoAdapter extends RecyclerView.Adapter<PradoAdapter.Vh> {
-   private ArrayList<Integer> list;
+    private ArrayList<Integer> list;
     private LayoutInflater inflater;
     private Context context;
 
-    public PradoAdapter(ArrayList<Integer> list,Context context) {
+    public PradoAdapter(ArrayList<Integer> list, Context context) {
         this.list = list;
-        inflater=LayoutInflater.from(context);
+        inflater = LayoutInflater.from(context);
         this.context = context;
     }
 
@@ -39,7 +37,6 @@ public class PradoAdapter extends RecyclerView.Adapter<PradoAdapter.Vh> {
         Glide.with(context)
                 .load(list.get(position))
                 .into(holder.im);
-//          holder.im.setImageResource(list.get(position));
     }
 
     @Override
@@ -47,17 +44,12 @@ public class PradoAdapter extends RecyclerView.Adapter<PradoAdapter.Vh> {
         return list.size();
     }
 
-    class Vh extends RecyclerView.ViewHolder{
-          ImageView im=itemView.findViewById(R.id.imPradoMosh);
+    class Vh extends RecyclerView.ViewHolder {
+        ImageView im = itemView.findViewById(R.id.imPradoMosh);
 
         public Vh(@NonNull View itemView) {
 
             super(itemView);
-
-        }
-
-        public void bind(ArrayList<Integer> list) {
-
 
         }
     }

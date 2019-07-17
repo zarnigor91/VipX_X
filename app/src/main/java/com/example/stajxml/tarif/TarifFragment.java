@@ -43,12 +43,12 @@ public class TarifFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         rvTarif = view.findViewById(R.id.tarif_list);
 
-        ArrayList<TarifModel> tarifModels =loadTarifFromAsset() ;
+        ArrayList<TarifModel> tarifModels = loadTarifFromAsset();
 
         TarifAdapter adapter = new TarifAdapter(tarifModels, getContext());
-        rvTarif.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvTarif.setLayoutManager(new LinearLayoutManager(getContext()));    // load to recycler view tarifItem
         rvTarif.setAdapter(adapter);
-          zakazat=view.findViewById(R.id.zakazat);
+        zakazat = view.findViewById(R.id.zakazat);
 
 
         recyclerView = view.findViewById(R.id.rv_arenda);
@@ -58,14 +58,15 @@ public class TarifFragment extends Fragment {
         recyclerView.setAdapter(pradoAdapter);
 
         SnapHelper snapHelper = new GravitySnapHelper(Gravity.START);
-        snapHelper.attachToRecyclerView(recyclerView);
+        snapHelper.attachToRecyclerView(recyclerView);    // hold the item
         zakazat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {        //   go to zakazaFragmnet
+
                 ZakazFragment newFragment = new ZakazFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
-                        R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                        R.anim.enter_left_to_right, R.anim.exit_left_to_right)
                         .replace(R.id.for_fragments, newFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -81,7 +82,7 @@ public class TarifFragment extends Fragment {
         return view;
     }
 
-    private ArrayList<Integer> car() {
+    private ArrayList<Integer> car() {     // load image
 
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
@@ -89,22 +90,24 @@ public class TarifFragment extends Fragment {
         }
         return list;
     }
-    private ArrayList<TarifModel> loadTarifFromAsset() {
-        InputStream in=null;
+
+    private ArrayList<TarifModel> loadTarifFromAsset() {    //Parse from json
+        InputStream in = null;
         try {
-            if(LocaleHelper.getLanguage(App.getInstance()).equals("uz"))
-         in = getActivity().getAssets().open("prado_tarif_uz.json");
+            if (LocaleHelper.getLanguage(App.getInstance()).equals("uz"))
+                in = getActivity().getAssets().open("prado_tarif_uz.json");
             else
                 in = getActivity().getAssets().open("prado_tarif.json");
             StringBuilder builder = new StringBuilder();
-            Gson gson=new Gson();
+            Gson gson = new Gson();
             byte[] buffer = new byte[1024];
             int offset;
             while ((offset = in.read(buffer)) != -1) {
                 builder.append(new String(buffer, 0, offset));
             }
-            ArrayList<TarifModel> models=gson.fromJson(builder.toString(),
-                    new TypeToken<ArrayList<TarifModel>>(){}.getType());
+            ArrayList<TarifModel> models = gson.fromJson(builder.toString(),
+                    new TypeToken<ArrayList<TarifModel>>() {
+                    }.getType());
             return models;
 
         } catch (IOException e) {

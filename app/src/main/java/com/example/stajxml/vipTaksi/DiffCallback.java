@@ -1,18 +1,14 @@
 package com.example.stajxml.vipTaksi;
 
 
-
-
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.DiffUtil;
 
-
-
 import java.util.List;
 
-public class DiffCallback extends DiffUtil.Callback {
+public class DiffCallback extends DiffUtil.Callback {  //notification channel
     private List<ModelVipTaksi> oldList;
     private List<ModelVipTaksi> newList;
 
@@ -33,16 +29,16 @@ public class DiffCallback extends DiffUtil.Callback {
 
     @Override
     public boolean areItemsTheSame(int oldItemPoistion, int newItemPoistion) {
-       ModelVipTaksi oldItem=oldList.get(oldItemPoistion);
-        ModelVipTaksi newItem=newList.get(newItemPoistion);
+        ModelVipTaksi oldItem = oldList.get(oldItemPoistion);
+        ModelVipTaksi newItem = newList.get(newItemPoistion);
         return oldItem.getName().equals(newItem.getName());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public boolean areContentsTheSame(int oldItemPoistion, int newItemPoistion) {
-        ModelVipTaksi oldItem=oldList.get(oldItemPoistion);
-        ModelVipTaksi newItem=newList.get(newItemPoistion);
+        ModelVipTaksi oldItem = oldList.get(oldItemPoistion);
+        ModelVipTaksi newItem = newList.get(newItemPoistion);
         return oldItem.equals(newItem);
     }
 

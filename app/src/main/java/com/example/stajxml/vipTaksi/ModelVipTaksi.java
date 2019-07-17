@@ -4,11 +4,8 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.stajxml.R;
-import com.example.stajxml.RjexNumber;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class ModelVipTaksi {
@@ -21,14 +18,14 @@ public class ModelVipTaksi {
     private String width;
 
 
-    public ModelVipTaksi(int carImage, String status,String name,  int price, String time, String width) {
+    public ModelVipTaksi(int carImage, String status, String name, int price, String time, String width) {
         this.carImage = carImage;
         this.status = status;
 
         this.price = price;
         this.name = name;
         this.time = time;
-        this.width=width;
+        this.width = width;
     }
 
 

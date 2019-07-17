@@ -17,6 +17,7 @@ import com.example.stajxml.R;
 public class MyDialogFragment extends DialogFragment {
     ImageView close;
     Button otmemena;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,21 +27,21 @@ public class MyDialogFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.dialog_xml,container,false);
-        close=view.findViewById(R.id.close);
-        otmemena=view.findViewById(R.id.otmena);
-        return  view;
+        View view = inflater.inflate(R.layout.dialog_xml, container, false);
+        close = view.findViewById(R.id.close);
+        otmemena = view.findViewById(R.id.otmena);
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-       AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         final AlertDialog alertDialog = builder.create();
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              alertDialog.dismiss();
+                alertDialog.dismiss();
             }
         });
         otmemena.setOnClickListener(new View.OnClickListener() {

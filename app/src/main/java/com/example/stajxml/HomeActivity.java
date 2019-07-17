@@ -20,11 +20,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.stajxml.taksi.FragmentTaksi;
 import com.example.stajxml.tarif.TarifFragment;
-import com.example.stajxml.vipTaksi.ModelVipTaksi;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener,
@@ -32,7 +28,7 @@ public class HomeActivity extends BaseActivity
     DrawerLayout drawer;
     Toolbar toolbar;
     NavigationView navigationView;
-    TextView tvUz, tvRu, tvReg;
+    TextView tvUz, tvRu, tvReg, tvViyte;
     ImageView imageView;
 
 
@@ -49,7 +45,7 @@ public class HomeActivity extends BaseActivity
 
         tvRu = header.findViewById(R.id.tvRus);
         tvUz = header.findViewById(R.id.tvUz);
-        tvReg = header.findViewById(R.id.tvReg);
+        tvViyte = header.findViewById(R.id.tvViyte);
 
         tvUz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,10 +59,15 @@ public class HomeActivity extends BaseActivity
                 rusSlect();
             }
         });
-
+        tvViyte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         tvUz.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
-        tvReg.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+        tvViyte.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

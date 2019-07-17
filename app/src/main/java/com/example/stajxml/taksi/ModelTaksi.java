@@ -1,4 +1,5 @@
 package com.example.stajxml.taksi;
+
 import com.google.gson.annotations.SerializedName;
 
 public class ModelTaksi {
@@ -12,7 +13,7 @@ public class ModelTaksi {
     public ModelTaksi(String text, int image, int image_hecked) {
         this.text = text;
         this.image = image;
-        this.imageChecked= image_hecked;
+        this.imageChecked = image_hecked;
     }
 
     public String getText() {
@@ -27,17 +28,10 @@ public class ModelTaksi {
         return image;
     }
 
-    public void setImage(int image) {
-        this.image = image;
-    }
-
     public int getImageChecked() {
         return imageChecked;
     }
 
-    public void setImageChecked(int imageChecked) {
-        this.imageChecked = imageChecked;
-    }
 
     public boolean isChecked() {
         return isChecked;

@@ -25,7 +25,8 @@ public class ParolFragment extends Fragment implements View.OnClickListener {
     private TextView uz, rus, Reg;
     private EditText etParol;
 
-    private  ConstraintLayout prodol;
+    private ConstraintLayout prodol;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +36,9 @@ public class ParolFragment extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.parol_xml,container,false);
+        View view = inflater.inflate(R.layout.parol_xml, container, false);
         prodol = view.findViewById(R.id.prodoljit2);
-        etParol=view.findViewById(R.id.etParol);
+        etParol = view.findViewById(R.id.etParol);
 //        checkLenguage();
         prodol.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,16 +48,15 @@ public class ParolFragment extends Fragment implements View.OnClickListener {
                     //intent.putExtra();
                     startActivity(intent);
                     getActivity().finish();
-                }
-                else
-                {
+                } else {
                     etParol.setError("XATO kiritildi");
-                    Toast.makeText(getContext(), "Parol xato", Toast.LENGTH_SHORT).show();}
+                    Toast.makeText(getContext(), "Parol xato", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
 
-        return  view;
+        return view;
     }
 
     @Override
@@ -64,9 +64,9 @@ public class ParolFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
 //        setResourceString();
 
-        uz=view.findViewById(R.id.tvUz);
-        rus=view.findViewById(R.id.tvRus);
-        Reg=view.findViewById(R.id.tvReg);
+        uz = view.findViewById(R.id.tvUz);
+        rus = view.findViewById(R.id.tvRus);
+        Reg = view.findViewById(R.id.tvReg);
         uz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,28 +96,32 @@ public class ParolFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
     }
-    void uzSlect(){
+
+    void uzSlect() {
         uz.setTextColor(getResources().getColor(R.color.colorWhite));
         rus.setTextColor(getResources().getColor(R.color.colorYellow));
         Reg.setTextColor(getResources().getColor(R.color.colorYellow));
     }
-    void rusSlect(){
+
+    void rusSlect() {
         uz.setTextColor(getResources().getColor(R.color.colorYellow));
         rus.setTextColor(getResources().getColor(R.color.colorWhite));
         rus.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         Reg.setTextColor(getResources().getColor(R.color.colorYellow));
     }
-    void regSlect(){
+
+    void regSlect() {
         uz.setTextColor(getResources().getColor(R.color.colorYellow));
         rus.setTextColor(getResources().getColor(R.color.colorYellow));
         Reg.setTextColor(getResources().getColor(R.color.colorWhite));
     }
-    void checkLenguage(){
-        if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")){
+
+    void checkLenguage() {
+        if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")) {
             uz.setTextColor(getResources().getColor(R.color.colorYellow));
             uz.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
             rus.setTextColor(getResources().getColor(R.color.colorGrey));
-        }else {
+        } else {
             uz.setTextColor(getResources().getColor(R.color.colorGrey));
             rus.setTextColor(getResources().getColor(R.color.colorYellow));
             rus.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);

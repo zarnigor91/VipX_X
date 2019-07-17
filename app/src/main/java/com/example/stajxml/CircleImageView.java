@@ -14,18 +14,14 @@ import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-
-import androidx.annotation.ColorInt;
-import androidx.annotation.Dimension;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 
-public class CircleImageView extends AppCompatImageView {
+public class CircleImageView extends AppCompatImageView {  //create  CircleImageView
 
     private static final int DEF_PRESS_HIGHLIGHT_COLOR = 0x32000000;
 
@@ -155,44 +151,6 @@ public class CircleImageView extends AppCompatImageView {
         drawHighlight(canvas);
     }
 
-    public boolean isHighlightEnable() {
-        return mHighlightEnable;
-    }
-
-    public void setHighlightEnable(boolean enable) {
-        mHighlightEnable = enable;
-        invalidate();
-    }
-
-    @ColorInt
-    public int getHighlightColor() {
-        return mPressedPaint.getColor();
-    }
-
-    public void setHighlightColor(@ColorInt int color) {
-        mPressedPaint.setColor(color);
-        invalidate();
-    }
-
-    @ColorInt
-    public int getStrokeColor() {
-        return mStrokePaint.getColor();
-    }
-
-    public void setStrokeColor(@ColorInt int color) {
-        mStrokePaint.setColor(color);
-        invalidate();
-    }
-
-    @Dimension
-    public float getStrokeWidth() {
-        return mStrokePaint.getStrokeWidth();
-    }
-
-    public void setStrokeWidth(@Dimension float width) {
-        mStrokePaint.setStrokeWidth(width);
-        invalidate();
-    }
 
     protected void drawHighlight(Canvas canvas) {
         if (mHighlightEnable && mPressed) {

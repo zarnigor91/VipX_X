@@ -98,8 +98,8 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
             }
         });
 
-        // vertical recyclerView
-        rvtaksi.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
+        rvtaksi.setLayoutManager(new GridLayoutManager(getContext(), 2));   // vertical recyclerView
         rvtaksi.setAdapter(adapterVip);
         zagruzitVse.setOnClickListener(new View.OnClickListener() {  //qo`shimcha yuklash
             @Override
@@ -137,7 +137,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
 
                 btPrimenit.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) { //saralash tugamasi
+                    public void onClick(View v) { //  sort  and  go to update VipTaksiFragment
 
                         int id = radioGroupSena.getCheckedRadioButtonId();
 
@@ -230,7 +230,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
     }
 
 
-    private ArrayList<ModelVipTaksi> loadModelVipTaxiFromAsset() { //jsonni pars qilish
+    private ArrayList<ModelVipTaksi> loadModelVipTaxiFromAsset() { //Parse from json
         InputStream in = null;
 
         try {
@@ -259,7 +259,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
     }
 
 
-    public void sortType(int a) {     //saralash funksiyalari
+    public void sortType(int a) {     //sorting function
 
 
         if (a == 1) {
@@ -274,13 +274,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
             Collections.sort(listGrid, new SortPriceDown());
         }
         if (a == 6) {
-            Collections.sort(listGrid, new SortedPriceUp() {
-                @Override
-                public int compare(ModelVipTaksi o1, ModelVipTaksi o2) {
-                    return o1.getPrice() - o2.getPrice();
-                }
-            });
-
+            Collections.sort(listGrid, new SortedPriceUp());
         } else if (a == 7) {
             Collections.sort(listGrid, new SortedSmall());
         } else if (a == 8) {

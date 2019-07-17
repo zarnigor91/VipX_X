@@ -1,13 +1,15 @@
 package com.example.stajxml;
-public abstract class RjexNumber {
-    private RjexNumber(){}
 
-    public static String IntToString(int n){
+public abstract class RjexNumber {
+    private RjexNumber() {
+    }
+
+    public static String IntToString(int n) {
         String s = String.valueOf(n);
         return StringToString(s);
     }
 
-    public static String StringToString(String s){
+    public static String StringToString(String s) {
         String s2 = "";
         int l = s.length();
 
@@ -16,7 +18,7 @@ public abstract class RjexNumber {
 
         s = "";
 
-        for (int i = 0; i + 3 <= l; i += 3){
+        for (int i = 0; i + 3 <= l; i += 3) {
             s += s2.substring(i, i + 3) + " ";
         }
 

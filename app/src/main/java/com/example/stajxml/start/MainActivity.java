@@ -1,7 +1,5 @@
 package com.example.stajxml.start;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 import com.example.stajxml.BaseActivity;
@@ -14,10 +12,10 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-           if(savedInstanceState==null){
-               getSupportFragmentManager().beginTransaction().add(R.id.continer,new LoginFragment()).commit();
-           }
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().add(R.id.continer, new LoginFragment()).commit();
+        }
 
-           
+
     }
 }

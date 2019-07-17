@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,13 +22,13 @@ import com.example.stajxml.HomeActivity;
 import com.example.stajxml.LocaleHelper;
 import com.example.stajxml.Prefs;
 import com.example.stajxml.R;
-import com.example.stajxml.taksi.FragmentTaksi;
 
-public class LoginFragment  extends Fragment {
-    TextView uz, rus, Reg, bezreg, wellcome,infoText, login, prodoljit;
-      private EditText editLogin;
-     private ConstraintLayout prodol;
-     Context context;
+public class LoginFragment extends Fragment {
+    TextView uz, rus, Reg, bezreg, wellcome, infoText, login, prodoljit;
+    Context context;
+    private EditText editLogin;
+    private ConstraintLayout prodol;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,19 +38,19 @@ public class LoginFragment  extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.log_in_fragment,container,false);
-           uz=view.findViewById(R.id.tvUz);
-           rus=view.findViewById(R.id.tvRus);
-           Reg=view.findViewById(R.id.tvReg);
-           bezreg=view.findViewById(R.id.bz);
+        View view = inflater.inflate(R.layout.log_in_fragment, container, false);
+        uz = view.findViewById(R.id.tvUz);
+        rus = view.findViewById(R.id.tvRus);
+        Reg = view.findViewById(R.id.tvReg);
+        bezreg = view.findViewById(R.id.bz);
 
-           wellcome = view.findViewById(R.id.textWelcome);
-           infoText = view.findViewById(R.id.text);
-           login = view.findViewById(R.id.textLogin);
-           prodoljit = view.findViewById(R.id.prodoljit);
-           editLogin=view.findViewById(R.id.login);
+        wellcome = view.findViewById(R.id.textWelcome);
+        infoText = view.findViewById(R.id.text);
+        login = view.findViewById(R.id.textLogin);
+        prodoljit = view.findViewById(R.id.prodoljit);
+        editLogin = view.findViewById(R.id.login);
 
-           context = getContext();
+        context = getContext();
         uz.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         Reg.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
@@ -66,21 +65,21 @@ public class LoginFragment  extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setResourceString();
         checkLenguage();
-        prodol=view.findViewById(R.id.prodoljit1);
+        prodol = view.findViewById(R.id.prodoljit1);
         prodol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if( Prefs.instance(App.preferences).getLogin().equals( editLogin.getText().toString().trim())) {
+                if (Prefs.instance(App.preferences).getLogin().equals(editLogin.getText().toString().trim())) {
                     ParolFragment newFragment = new ParolFragment();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
-                            R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                    transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
+                            R.anim.enter_left_to_right, R.anim.exit_left_to_right)
                             .replace(R.id.continer, newFragment)
-                   .addToBackStack(null)
-                  .commit();
-                }
-                else {
-                    login.setError("XATO kiritildi");Toast.makeText(context, "Login xato", Toast.LENGTH_SHORT).show();
+                            .addToBackStack(null)
+                            .commit();
+                } else {
+                    login.setError("XATO kiritildi");
+                    Toast.makeText(context, "Login xato", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -109,13 +108,13 @@ public class LoginFragment  extends Fragment {
         Reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RegistratsionFragment registratsionFragment=new RegistratsionFragment();
+                RegistratsionFragment registratsionFragment = new RegistratsionFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.continer, registratsionFragment)
                         .addToBackStack(null)
-                        .setCustomAnimations( R.anim.abc_slide_in_top, R.anim.abc_slide_out_top ) // Top Fragment Animation
-                        .show( registratsionFragment )
-                        .setCustomAnimations( R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_bottom ) // Bottom Fragment Animation
+                        .setCustomAnimations(R.anim.abc_slide_in_top, R.anim.abc_slide_out_top) // Top Fragment Animation
+                        .show(registratsionFragment)
+                        .setCustomAnimations(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_bottom) // Bottom Fragment Animation
                         .show(registratsionFragment)
                         .commit();
 
@@ -125,7 +124,7 @@ public class LoginFragment  extends Fragment {
 
     }
 
-    private void setResourceString(){
+    private void setResourceString() {
         wellcome.setText(context.getResources().getString(R.string.dobro_pajalovat));
         infoText.setText(context.getResources().getString(R.string.arenda_avto));
         login.setText(context.getResources().getString(R.string.login));
@@ -137,7 +136,7 @@ public class LoginFragment  extends Fragment {
 
     }
 
-    void uzSlect(){
+    void uzSlect() {
         uz.setTextColor(getResources().getColor(R.color.colorYellow));
         uz.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         rus.setTextColor(getResources().getColor(R.color.colorGrey));
@@ -146,7 +145,8 @@ public class LoginFragment  extends Fragment {
         App.getInstance().updateRes();
         setResourceString();
     }
-    void rusSlect(){
+
+    void rusSlect() {
         uz.setTextColor(getResources().getColor(R.color.colorGrey));
         rus.setTextColor(getResources().getColor(R.color.colorYellow));
         rus.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
@@ -156,12 +156,12 @@ public class LoginFragment  extends Fragment {
         setResourceString();
     }
 
-    void checkLenguage(){
-        if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")){
+    void checkLenguage() {
+        if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")) {
             uz.setTextColor(getResources().getColor(R.color.colorYellow));
             uz.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
             rus.setTextColor(getResources().getColor(R.color.colorGrey));
-        }else {
+        } else {
             uz.setTextColor(getResources().getColor(R.color.colorGrey));
             rus.setTextColor(getResources().getColor(R.color.colorYellow));
             rus.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
