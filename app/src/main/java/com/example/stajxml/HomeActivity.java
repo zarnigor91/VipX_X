@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -22,8 +21,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.stajxml.taksi.FragmentTaksi;
 import com.example.stajxml.tarif.TarifFragment;
 import com.example.stajxml.vipTaksi.ModelVipTaksi;
-import com.example.stajxml.vipTaksi.VipTaksiAsoFragment;
-import com.example.stajxml.vipTaksi.VipTaxiAdapter;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -31,17 +28,14 @@ import java.util.List;
 
 public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener,
-        SearchView.OnCloseListener , IOnclickListener{
-   private List<ModelVipTaksi> list;
-    private List<ModelVipTaksi> vipTaksiList;
+        SearchView.OnCloseListener, IOnclickListener {
     DrawerLayout drawer;
     Toolbar toolbar;
-    private VipTaxiAdapter adapter;
     NavigationView navigationView;
     TextView tvUz, tvRu, tvReg;
-
-
     ImageView imageView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,48 +78,38 @@ public class HomeActivity extends BaseActivity
         FragmentTaksi fragmentTaksi = new FragmentTaksi();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,R.anim.enter_left_to_right,R.anim.exit_left_to_right)
-            .add(R.id.for_fragments, fragmentTaksi).addToBackStack(null).commit();
+                    .setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right, R.anim.enter_left_to_right, R.anim.exit_left_to_right)
+                    .add(R.id.for_fragments, fragmentTaksi).addToBackStack(null).commit();
         }
 
         initNavigationMenu();
 
-        imageView=findViewById(R.id.image_logo);
+        imageView = findViewById(R.id.image_logo);
 
         fragmentTaksi.setListener(new FragmentTaksi.SearchViewListener() {
             @Override
             public void onClick(int positon) {
-                if (positon == 0){
+                if (positon == 0) {
                     findViewById(R.id.image_logo).setVisibility(View.VISIBLE);
-                }else {
+                } else {
                     findViewById(R.id.image_logo).setVisibility(View.INVISIBLE);
                 }
             }
         });
-//        VipTaksiAsoFragment vipTaksiAsoFragment=new VipTaksiAsoFragment();
-//        vipTaksiAsoFragment.setListener(new VipTaksiAsoFragment.SearchViewListener() {
-//            @Override
-//            public void onClick(int positon) {
-//                if (positon == 0){
-//                    findViewById(R.id.image_logo).setVisibility(View.VISIBLE);
-//                }else {
-//                    findViewById(R.id.image_logo).setVisibility(View.INVISIBLE);
-//                }
-//            }
-//        });
-   }
+
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
-        vipTaksiList=new ArrayList<>();
+//        vipTaksiList = new ArrayList<>();
     }
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() == 1){
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
             finish();
-        }else {
+        } else {
             getSupportFragmentManager().popBackStack();
         }
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -172,7 +156,7 @@ public class HomeActivity extends BaseActivity
 //            imageView.setVisibility(View.GONE);
 //            return true;
 //        } else
-            if (id == android.R.id.home) {
+        if (id == android.R.id.home) {
             finish();
         }
 
@@ -187,8 +171,8 @@ public class HomeActivity extends BaseActivity
         if (id == R.id.tarif) {
             TarifFragment tarifFragment = new TarifFragment();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.for_fragments, tarifFragment,null);
-                transaction.addToBackStack(null);
+            transaction.replace(R.id.for_fragments, tarifFragment, null);
+            transaction.addToBackStack(null);
             transaction.commit();
 //            getSupportFragmentManager().beginTransaction().add(R.id.for_fragments, new TarifFragment()).commit();
         } else if (id == R.id.sob) {
@@ -228,18 +212,19 @@ public class HomeActivity extends BaseActivity
 
 
     }
-    void uzSlect(){
+
+    void uzSlect() {
         tvUz.setTextColor(getResources().getColor(R.color.colorWhite));
         tvRu.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         tvRu.setTextColor(getResources().getColor(R.color.colorBlack));
 
     }
-    void rusSlect(){
+
+    void rusSlect() {
         tvUz.setTextColor(getResources().getColor(R.color.colorBlack));
         tvRu.setTextColor(getResources().getColor(R.color.colorWhite));
         tvRu.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
     }
-
 
 
     @Override
@@ -251,9 +236,9 @@ public class HomeActivity extends BaseActivity
 
     @Override
     public void onClick(int positon) {
-        if (positon == 0){
+        if (positon == 0) {
             findViewById(R.id.image_logo).setVisibility(View.INVISIBLE);
-        }else {
+        } else {
             findViewById(R.id.image_logo).setVisibility(View.VISIBLE);
         }
     }

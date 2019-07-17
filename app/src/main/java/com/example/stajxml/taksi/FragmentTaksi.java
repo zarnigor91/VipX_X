@@ -27,7 +27,7 @@ import com.example.stajxml.LocaleHelper;
 import com.example.stajxml.R;
 import com.example.stajxml.tarif.TarifFragment;
 import com.example.stajxml.vipTaksi.ModelVipTaksi;
-import com.example.stajxml.vipTaksi.VipTaksiAsoFragment;
+import com.example.stajxml.vipTaksi.VipTaksiFragment;
 import com.example.stajxml.vipTaksi.VipTaxiAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -121,11 +121,11 @@ public class FragmentTaksi extends Fragment {
         sveTaksi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                VipTaksiAsoFragment newFragment = new VipTaksiAsoFragment();
+                VipTaksiFragment newFragment = new VipTaksiFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
                         R.anim.enter_left_to_right,R.anim.exit_left_to_right)
-                        .replace(R.id.for_fragments, newFragment,null);
+                        .add(R.id.for_fragments, newFragment,null);
                  if(issBack){
                 transaction.addToBackStack(null);}
                 transaction.commit();

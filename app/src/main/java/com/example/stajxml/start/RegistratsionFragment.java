@@ -58,10 +58,7 @@ public class RegistratsionFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 registred();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.continer, new LoginFragment())
-                        .addToBackStack(null)
-                        .commit();
+
 
           }
 
@@ -77,7 +74,7 @@ public class RegistratsionFragment extends Fragment {
         surName=surName_input.getText().toString();
         pass2=pass2_input.getText().toString();
         telNumber=telNumber_input.getText().toString();
-
+        answer=answer_input.getText().toString();
         if (!name.isEmpty() && !surName.isEmpty() && !telNumber.isEmpty() &&
                !answer.isEmpty() && !password.isEmpty() &&
                 pass2.equals(pass2) && !login.isEmpty()
@@ -87,7 +84,10 @@ public class RegistratsionFragment extends Fragment {
             Prefs.instance(App.preferences).setLogin(login);
             Prefs.instance(App.preferences).setPass(password);
             Prefs.instance(App.preferences).setReg(true);
-
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.continer, new LoginFragment())
+                    .addToBackStack(null)
+                    .commit();
         }
         else
         if (!validation()){
