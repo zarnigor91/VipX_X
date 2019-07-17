@@ -31,7 +31,6 @@ public class GravitySnapHelper extends LinearSnapHelper {
     public void attachToRecyclerView(@Nullable RecyclerView recyclerView)
             throws IllegalStateException {
         if (recyclerView != null) {
-           // isSupportRtL = recyclerView.getContext().getResources().getBoolean(R.bool.is_rtl);
         }
         super.attachToRecyclerView(recyclerView);
     }
@@ -44,7 +43,7 @@ public class GravitySnapHelper extends LinearSnapHelper {
         if (layoutManager.canScrollHorizontally()) {
             if (gravity == Gravity.START) {
                 out[0] = distanceToStart(targetView, getHorizontalHelper(layoutManager));
-            } else { // END
+            } else {
                 out[0] = distanceToEnd(targetView, getHorizontalHelper(layoutManager));
             }
         } else {
@@ -54,7 +53,7 @@ public class GravitySnapHelper extends LinearSnapHelper {
         if (layoutManager.canScrollVertically()) {
             if (gravity == Gravity.TOP) {
                 out[1] = distanceToStart(targetView, getVerticalHelper(layoutManager));
-            } else { // BOTTOM
+            } else {
                 out[1] = distanceToEnd(targetView, getVerticalHelper(layoutManager));
             }
         } else {

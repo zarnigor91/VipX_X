@@ -70,18 +70,19 @@ public class LoginFragment  extends Fragment {
         prodol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("zvfzdg",Prefs.instance(App.preferences).getLogin()+"sdfgs");
-                Log.d("123",login.getText().toString().trim()+"sdfgs");
                 if( Prefs.instance(App.preferences).getLogin().equals( editLogin.getText().toString().trim())) {
                     ParolFragment newFragment = new ParolFragment();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                    transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                            R.anim.enter_left_to_right,R.anim.exit_left_to_right)
                             .replace(R.id.continer, newFragment)
                    .addToBackStack(null)
                   .commit();
                 }
-                else Toast.makeText(context, "Login xato", Toast.LENGTH_SHORT).show();
-
+                else {
+                    login.setError("XATO kiritildi");
+//                    Toast.makeText(context, "Login xato", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bezreg.setOnClickListener(new View.OnClickListener() {

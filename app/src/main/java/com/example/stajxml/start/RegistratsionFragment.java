@@ -2,6 +2,7 @@ package com.example.stajxml.start;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +11,14 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.stajxml.App;
 import com.example.stajxml.Prefs;
 import com.example.stajxml.R;
+import com.google.android.material.snackbar.Snackbar;
 
 public class RegistratsionFragment extends Fragment {
    private EditText login_input, password_input,name_input, surName_input,telNumber_input,
@@ -26,6 +29,7 @@ public class RegistratsionFragment extends Fragment {
     private  IRegisterActions actions  = null;
     private   SharedPreferences sharedPref = null;
     private int index = 0;
+    private CoordinatorLayout mCLayout;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,12 +80,14 @@ public class RegistratsionFragment extends Fragment {
 
 //        String question = questions[index];
 
-        answer=answer_input.getText().toString();
+//        answer=answer_input.getText().toString();
 
         if (!name.isEmpty() && !surName.isEmpty() && !telNumber.isEmpty() &&
                !answer.isEmpty() && !password.isEmpty() &&
                 pass2.equals(pass2) && !login.isEmpty()
         ){
+            if (name.isEmpty())
+                Snackbar.make(mCLayout,"EditText is empty",Snackbar.LENGTH_LONG).show();
             Prefs.instance(App.preferences).setLogin(login);
             Prefs.instance(App.preferences).setPass(password);
             Prefs.instance(App.preferences).setReg(true);
