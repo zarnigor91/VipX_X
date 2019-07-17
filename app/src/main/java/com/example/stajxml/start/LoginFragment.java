@@ -80,8 +80,7 @@ public class LoginFragment  extends Fragment {
                   .commit();
                 }
                 else {
-                    login.setError("XATO kiritildi");
-//                    Toast.makeText(context, "Login xato", Toast.LENGTH_SHORT).show();
+                    login.setError("XATO kiritildi");Toast.makeText(context, "Login xato", Toast.LENGTH_SHORT).show();
                 }
             }
         });

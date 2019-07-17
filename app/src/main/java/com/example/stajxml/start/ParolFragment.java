@@ -38,7 +38,7 @@ public class ParolFragment extends Fragment implements View.OnClickListener {
         View view=inflater.inflate(R.layout.parol_xml,container,false);
         prodol = view.findViewById(R.id.prodoljit2);
         etParol=view.findViewById(R.id.etParol);
-        checkLenguage();
+//        checkLenguage();
         prodol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +89,8 @@ public class ParolFragment extends Fragment implements View.OnClickListener {
 
         uz.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         Reg.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+
+        checkLenguage();
     }
 
     @Override
@@ -112,7 +114,7 @@ public class ParolFragment extends Fragment implements View.OnClickListener {
     }
     void checkLenguage(){
         if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")){
-//            uz.setTextColor(getResources().getColor(R.color.colorRed));
+            uz.setTextColor(getResources().getColor(R.color.colorYellow));
             uz.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
             rus.setTextColor(getResources().getColor(R.color.colorGrey));
         }else {

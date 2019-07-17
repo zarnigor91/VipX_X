@@ -2,12 +2,12 @@ package com.example.stajxml.start;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,10 +26,8 @@ public class RegistratsionFragment extends Fragment {
    private String login, password,name, surName,telNumber,question,answer,pass2;
    private boolean Registered;
    private Button RegisterButton;
-    private  IRegisterActions actions  = null;
-    private   SharedPreferences sharedPref = null;
-    private int index = 0;
-    private CoordinatorLayout mCLayout;
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,6 +64,8 @@ public class RegistratsionFragment extends Fragment {
                         .commit();
 
           }
+
+
         });
     }
 
@@ -78,24 +78,62 @@ public class RegistratsionFragment extends Fragment {
         pass2=pass2_input.getText().toString();
         telNumber=telNumber_input.getText().toString();
 
-//        String question = questions[index];
-
-//        answer=answer_input.getText().toString();
-
         if (!name.isEmpty() && !surName.isEmpty() && !telNumber.isEmpty() &&
                !answer.isEmpty() && !password.isEmpty() &&
                 pass2.equals(pass2) && !login.isEmpty()
-        ){
-            if (name.isEmpty())
-                Snackbar.make(mCLayout,"EditText is empty",Snackbar.LENGTH_LONG).show();
+        )
+        {
+
             Prefs.instance(App.preferences).setLogin(login);
             Prefs.instance(App.preferences).setPass(password);
             Prefs.instance(App.preferences).setReg(true);
 
         }
+        else
+        if (!validation()){
+            Toast.makeText(getActivity(),"sucessfull",Toast.LENGTH_LONG).show();
+        }
+    }
+    private boolean validation() {
+
+        boolean valid=true;
+        if (name.isEmpty()||name_input.getText().length()<4){
+            name_input.setError("empty name");
+
+            valid=false;
+        }
+        if (surName.isEmpty()){
+            surName_input.setError("empty surName");
+            valid=false;
+        }
+        if (telNumber.isEmpty()||telNumber_input.getText().length()!=13){
+            telNumber_input.setError("incorrect number");
+            valid=false;
+        }
+        if (answer.isEmpty()){
+            answer_input.setError("empty answer");
+            valid=false;
+
+        }
+
+        if (login.isEmpty()||login_input.getText().length()<4){
+            login_input.setError("invalid login");
+
+            valid=false;
+        }
+        if (password.isEmpty()||password_input.getText().length()<5){
+            login_input.setError("invalid password");
+
+            valid=false;
+        }
+        if (password.isEmpty()&& password.equals(pass2)||pass2_input.getText().length()<5){
+            login_input.setError("invalid password2");
+
+            valid=false;
+        }
+        return true;
     }
 
-    public interface IRegisterActions {
-        public void onRegistred();
-    }
+
+
 }
