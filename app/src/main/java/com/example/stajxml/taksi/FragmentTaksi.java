@@ -96,9 +96,10 @@ public class FragmentTaksi extends Fragment {
             public void onItemClick(ModelVipTaksi modelVipTaksi) {
                 TarifFragment tarifFragment = new TarifFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.for_fragments, tarifFragment,null);
-                if(issBack){
-                    transaction.addToBackStack(null);}
+                transaction.setCustomAnimations(R.anim.enter_right_to_left,R.anim.exit_left_to_right,
+                        R.anim.enter_left_to_right,R.anim.exit_left_to_right)
+                        .replace(R.id.for_fragments, tarifFragment,null)
+                 .addToBackStack(null);
                 transaction.commit();
             }
         });
