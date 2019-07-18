@@ -16,25 +16,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.stajxml.app.App;
-import com.example.stajxml.app.Prefs;
 import com.example.stajxml.R;
+import com.example.stajxml.app.App;
+import com.example.stajxml.app.LocaleHelper;
+import com.example.stajxml.app.Prefs;
 
 
 public class RegistratsionFragment extends Fragment {
+    String[] questions = new String[4];
     private EditText login_input, password_input, name_input, surName_input, telNumber_input,
-            question_input, answer_input, pass2_input;
+            answer_input, pass2_input;
     private String login, password, name, surName, telNumber, question, answer, pass2;
     private Button RegisterButton;
-    private Spinner spinner ;
-    private int  index = 0;
-    String [] questions = {
-            "Sizning birinchi moshinangiz?",
-            "Uy hayvoningizni ismi?",
-            "Sevimli kitobingiz",
-            "Siz yoqtirgan dasturlash tili"
-    };
-
+    private Spinner spinner;
+    private int index = 0;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,7 +48,8 @@ public class RegistratsionFragment extends Fragment {
         pass2_input = view.findViewById(R.id.tie_pass2);
         telNumber_input = view.findViewById(R.id.tie_tel);
         answer_input = view.findViewById(R.id.tie_answer);
-        spinner=view.findViewById(R.id.spinner_ques);
+        spinner = view.findViewById(R.id.spinner_ques);
+
         return view;
 
     }
@@ -62,6 +58,7 @@ public class RegistratsionFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        isChecked();
         spinnerSetData();
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,18 +73,11 @@ public class RegistratsionFragment extends Fragment {
     }
 
     private void registred() {     // registration
-        String [] questions = {
-                "Sizning birinchi moshinangiz?",
-                "Uy hayvoningizni ismi?",
-                "Sevimli kitobingiz",
-                "Siz yoqtirgan dasturlash tili"
-        };
-
         login = login_input.getText().toString();
         password = password_input.getText().toString();
         name = name_input.getText().toString();
         surName = surName_input.getText().toString();
-         question = questions[index];
+        question = questions[index];
         pass2 = pass2_input.getText().toString();
         telNumber = telNumber_input.getText().toString();
         answer = answer_input.getText().toString();
@@ -109,15 +99,13 @@ public class RegistratsionFragment extends Fragment {
     }
 
 
-
-
     private void spinnerSetData() {
         ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.spinner_item, questions);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                index=position;
+                index = position;
             }
 
             @Override
@@ -165,6 +153,24 @@ public class RegistratsionFragment extends Fragment {
             valid = false;
         }
         return true;
+    }
+
+    public void isChecked() {
+        if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")) {
+            for (int i = 0; i < questions.length; i++) {
+                questions[0] = "Sizning birinchi moshinangiz?";
+                questions[1] = "Uy hayvoningizni ismi?";
+                questions[2] = "Sevimli kitobingiz";
+                questions[3] = "Siz yoqtirgan dasturlash tili";
+            }
+        } else {
+            for (int i = 0; i < questions.length; i++) {
+                questions[0] = "Ваша первая машина?";
+                questions[1] = "Ваше имя питомца?";
+                questions[2] = "Твоя любимая книга";
+                questions[3] = "Ваш любимый язык программирования";
+            }
+        }
     }
 
 

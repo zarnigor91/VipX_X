@@ -34,12 +34,12 @@
     <string name="login">Логин</string>
     <string name="prodoljit">ДАВОМ ЭТТИРИШ</string>
     <string name="bez_avto">АВТОРИЗАТСИЯСИЗ</string>
-    <string name="rus">Рус</string>
-    <string name="uzbek">Узбек</string>
+    <string name="rus">Русcкий </string>
+    <string name="uzbek">Ўзбекча</string>
     <string name="register">Register</string>
     <string name="demo_polzavatel">Демо фойдаланувчи</string>
     <string name="passajir">Йўловчи</string>
-    <string name="viti">Чиқиб кетиш</string>
+    <string name="viti">Дастурдан чиқиш</string>
     <string name="password">Пароль</string>
     <string name="voyti">ТИЗИМГА КИРИШ</string>
     <string name="svaboden">бўш</string>

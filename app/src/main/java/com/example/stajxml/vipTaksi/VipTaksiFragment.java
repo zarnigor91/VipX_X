@@ -1,7 +1,5 @@
 package com.example.stajxml.vipTaksi;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,10 +21,9 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.stajxml.app.App;
-import com.example.stajxml.IOnclickListener;
-import com.example.stajxml.app.LocaleHelper;
 import com.example.stajxml.R;
+import com.example.stajxml.app.App;
+import com.example.stajxml.app.LocaleHelper;
 import com.example.stajxml.sort.SortPriceDown;
 import com.example.stajxml.sort.SortedDownSmall;
 import com.example.stajxml.sort.SortedDownWide;
@@ -47,21 +44,15 @@ import java.util.Collections;
 
 public class VipTaksiFragment extends Fragment implements SearchView.OnCloseListener {
     private static int a = 0;
-    private static int b = 0;
     private RecyclerView rvtaksi;
     private ImageView imSwap, imageLogo;
     private Button zagruzitVse;
     private RadioGroup radioGroupSena, radioGroupBole;
     private ArrayList<ModelVipTaksi> listGrid;
     private VipTaxiAdapter adapterVip;
-    private IOnclickListener listener;
     private SearchView searchView = null;
 
     private SearchView.OnQueryTextListener queryTextListener;
-
-    public void setListener(IOnclickListener listener) {
-        this.listener = listener;
-    }
 
 
     @Override
@@ -284,30 +275,30 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
         }
         Log.d("TTT", "SortedPriceUp");
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {   // search
         menu.clear();
         inflater.inflate(R.menu.main2, menu);
         MenuItem searchItem = menu.findItem(R.id.search);
-//        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
 
         if (searchItem != null) {
             searchView = (SearchView) searchItem.getActionView();
+
         }
         if (searchView != null) {
-//            searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
-
             queryTextListener = new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextChange(String newText) {
                     Log.i("onQueryTextChange", newText);
-     adapterVip.searchWith(newText);
+                    adapterVip.searchWith(newText);
                     return true;
                 }
+
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     Log.i("onQueryTextSubmit", query);
-              adapterVip.searchWith(query);
+                    adapterVip.searchWith(query);
                     return true;
                 }
             };

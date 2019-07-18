@@ -33,6 +33,7 @@
                 android:padding="@dimen/size_4">
 
                 <TextView
+                    android:id="@+id/otPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/ot"
@@ -53,6 +54,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sum"
+                    android:textColor="@color/colorYellow"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/danPrice"
+                    android:paddingStart="@dimen/size_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="дан"
                     android:textColor="@color/colorYellow"
                     android:textSize="16sp" />
             </LinearLayout>

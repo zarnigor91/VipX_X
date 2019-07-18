@@ -11,10 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.stajxml.app.App;
-import com.example.stajxml.app.LocaleHelper;
 import com.example.stajxml.R;
 import com.example.stajxml.RjexNumber;
+import com.example.stajxml.app.App;
+import com.example.stajxml.app.LocaleHelper;
 import com.example.stajxml.search.FilterImpl;
 import com.example.stajxml.search.IFilter;
 
@@ -128,13 +128,14 @@ public class VipTaxiAdapter extends RecyclerView.Adapter<VipTaxiAdapter.VH> {
             price.setText(RjexNumber.IntToString(modelTaksi.getPrice()) + "");
             time.setText(modelTaksi.getTime());
             if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")) {
+                ot.setVisibility(View.GONE);
                 if (modelTaksi.getStatus().equals("бўш")) {
                     status.setBackground(context.getResources().getDrawable(R.drawable.status_background1));
 
                 } else {
                     status.setBackground(context.getResources().getDrawable(R.drawable.status_background2));
                 }
-                ot.setVisibility(View.INVISIBLE);
+
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

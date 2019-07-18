@@ -11,9 +11,9 @@
        android:layout_height="wrap_content">
     <TextView
         android:id="@+id/tarf"
-        android:paddingLeft="22dp"
-        android:textStyle="bold"
 
+        android:textStyle="bold"
+        android:paddingStart="@dimen/size_16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorYellow"
@@ -23,7 +23,7 @@
 
     <TextView
         android:id="@+id/den"
-        android:paddingLeft="22dp"
+        android:paddingStart="@dimen/size12"
         android:layout_width="match_parent"
         android:layout_marginStart="10dp"
         android:layout_height="wrap_content"

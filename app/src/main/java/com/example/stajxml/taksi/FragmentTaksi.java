@@ -187,8 +187,6 @@ public class FragmentTaksi extends Fragment {
 
     private ArrayList<ModelVipTaksi> loadModelVipTaxiFromAsset() {  // Parse from json
         InputStream in = null;
-
-
         try {
             if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")) {
                 in = getActivity().getAssets().open("vip_taxi_uz.json");

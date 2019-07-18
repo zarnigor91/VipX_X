@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.stajxml.R;
 import com.example.stajxml.RjexNumber;
+import com.example.stajxml.app.App;
+import com.example.stajxml.app.LocaleHelper;
 
 import java.util.ArrayList;
 
@@ -49,6 +51,8 @@ public class NarxAdapter extends RecyclerView.Adapter<NarxAdapter.VH> {
         TextView soat;
         TextView narx;
         LinearLayout background;
+        TextView ot;
+        TextView dan;
 
         public VH(@NonNull View itemView) {
             super(itemView);
@@ -56,6 +60,8 @@ public class NarxAdapter extends RecyclerView.Adapter<NarxAdapter.VH> {
             oplata = itemView.findViewById(R.id.oplata);
             soat = itemView.findViewById(R.id.soat);
             narx = itemView.findViewById(R.id.narx);
+            ot = itemView.findViewById(R.id.otPrice);
+            dan = itemView.findViewById(R.id.danPrice);
             background = itemView.findViewById(R.id.yashil_back);
         }
 
@@ -71,6 +77,14 @@ public class NarxAdapter extends RecyclerView.Adapter<NarxAdapter.VH> {
             } else {
                 background.setVisibility(View.INVISIBLE);
             }
+            if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")) {
+                ot.setVisibility(View.GONE);
+                dan.setVisibility(View.VISIBLE);
+            } else {
+                ot.setVisibility(View.VISIBLE);
+                dan.setVisibility(View.GONE);
+            }
+
         }
     }
 }
