@@ -28,6 +28,12 @@ public class RegistratsionFragment extends Fragment {
     private Button RegisterButton;
     private Spinner spinner ;
     private int  index = 0;
+    String [] questions = {
+            "Sizning birinchi moshinangiz?",
+            "Uy hayvoningizni ismi?",
+            "Sevimli kitobingiz",
+            "Siz yoqtirgan dasturlash tili"
+    };
 
 
     @Override
@@ -106,7 +112,7 @@ public class RegistratsionFragment extends Fragment {
 
 
     private void spinnerSetData() {
-        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.spinner_item, questions);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
