@@ -1,4 +1,4 @@
-package com.example.stajxml;
+package com.example.stajxml.tarif;
 
 import android.annotation.SuppressLint;
 import android.view.Gravity;

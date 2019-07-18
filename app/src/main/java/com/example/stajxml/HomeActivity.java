@@ -80,7 +80,7 @@ public class HomeActivity extends BaseActivity
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right, R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                    .add(R.id.for_fragments, fragmentTaksi).addToBackStack(null).commit();
+                    .add(R.id.for_fragments, fragmentTaksi,"FRAGMENT_TAKSI").addToBackStack(null).commit();
         }
 
         initNavigationMenu();
@@ -103,7 +103,6 @@ public class HomeActivity extends BaseActivity
     @Override
     protected void onStart() {
         super.onStart();
-//        vipTaksiList = new ArrayList<>();
     }
 
     @Override
@@ -153,10 +152,6 @@ public class HomeActivity extends BaseActivity
 
         int id = item.getItemId();
 
-//        if (id == R.id.search) {
-//            imageView.setVisibility(View.GONE);
-//            return true;
-//        } else
         if (id == android.R.id.home) {
             finish();
         }
@@ -172,10 +167,10 @@ public class HomeActivity extends BaseActivity
         if (id == R.id.tarif) {
             TarifFragment tarifFragment = new TarifFragment();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.for_fragments, tarifFragment, null);
+            transaction.replace(R.id.for_fragments, tarifFragment, "FRAGMENT_TARIF");
             transaction.addToBackStack(null);
             transaction.commit();
-//            getSupportFragmentManager().beginTransaction().add(R.id.for_fragments, new TarifFragment()).commit();
+
         } else if (id == R.id.sob) {
 
         } else if (id == R.id.zak) {

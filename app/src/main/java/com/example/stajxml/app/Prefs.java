@@ -1,4 +1,4 @@
-package com.example.stajxml;
+package com.example.stajxml.app;
 
 import android.content.SharedPreferences;
 

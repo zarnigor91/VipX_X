@@ -1,4 +1,4 @@
-package com.example.stajxml;
+package com.example.stajxml.app;
 
 import android.app.Application;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 import java.util.Locale;
 

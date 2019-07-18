@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.stajxml.App;
-import com.example.stajxml.LocaleHelper;
+import com.example.stajxml.app.App;
+import com.example.stajxml.app.LocaleHelper;
 import com.example.stajxml.R;
 import com.example.stajxml.RjexNumber;
 import com.example.stajxml.search.FilterImpl;

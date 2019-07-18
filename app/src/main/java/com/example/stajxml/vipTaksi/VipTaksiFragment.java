@@ -1,5 +1,7 @@
 package com.example.stajxml.vipTaksi;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,9 +23,9 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.stajxml.App;
+import com.example.stajxml.app.App;
 import com.example.stajxml.IOnclickListener;
-import com.example.stajxml.LocaleHelper;
+import com.example.stajxml.app.LocaleHelper;
 import com.example.stajxml.R;
 import com.example.stajxml.sort.SortPriceDown;
 import com.example.stajxml.sort.SortedDownSmall;
@@ -92,7 +94,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                         R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                        .replace(R.id.for_fragments, tarifFragment, null)
+                        .replace(R.id.for_fragments, tarifFragment, "FRAGMENT_TARIF")
                         .addToBackStack(null);
                 transaction.commit();
             }
@@ -150,7 +152,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
                             transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                                     R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, null);
+                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.senaUbivayu && id1 == R.id.radioMene) {
@@ -159,7 +161,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
                             transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                                     R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, null);
+                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.senaVozras && id1 == R.id.radioMene) {
@@ -168,7 +170,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
                             transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                                     R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, null);
+                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.senaVozras && id1 == R.id.radioBole) {
@@ -177,7 +179,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
                             transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                                     R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, null);
+                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.senaVozras) {
@@ -186,7 +188,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
                             transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                                     R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, null);
+                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
                             transaction.addToBackStack(null);
                             transaction.commit();
 
@@ -196,7 +198,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
                             transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                                     R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, null);
+                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.radioMene) {
@@ -205,7 +207,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
                             transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                                     R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, null);
+                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
                             transaction.addToBackStack(null);
                             transaction.commit();
                         } else if (id == R.id.radioBole) {
@@ -214,7 +216,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
                             transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                                     R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, null);
+                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
                             transaction.addToBackStack(null);
                             transaction.commit();
                         }
@@ -282,45 +284,36 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
         }
         Log.d("TTT", "SortedPriceUp");
     }
-
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {   // search
         menu.clear();
         inflater.inflate(R.menu.main2, menu);
         MenuItem searchItem = menu.findItem(R.id.search);
+//        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
 
         if (searchItem != null) {
             searchView = (SearchView) searchItem.getActionView();
-
         }
         if (searchView != null) {
-            SearchView searchView = (SearchView) searchItem.getActionView();
+//            searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
 
             queryTextListener = new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextChange(String newText) {
                     Log.i("onQueryTextChange", newText);
-
-                    adapterVip.searchWith(newText);
+     adapterVip.searchWith(newText);
                     return true;
                 }
-
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     Log.i("onQueryTextSubmit", query);
-
-                    adapterVip.searchWith(query);
+              adapterVip.searchWith(query);
                     return true;
                 }
-
-
             };
-            super.onCreateOptionsMenu(menu, inflater);
             searchView.setOnQueryTextListener(queryTextListener);
         }
-
-
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
 

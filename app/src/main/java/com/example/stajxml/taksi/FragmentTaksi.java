@@ -22,8 +22,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.stajxml.App;
-import com.example.stajxml.LocaleHelper;
+import com.example.stajxml.app.App;
+import com.example.stajxml.app.LocaleHelper;
 import com.example.stajxml.R;
 import com.example.stajxml.puteshest.CubeTransformer;
 import com.example.stajxml.puteshest.PuteshestAdapter;
@@ -98,7 +98,7 @@ public class FragmentTaksi extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                         R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                        .replace(R.id.for_fragments, tarifFragment, null)
+                        .replace(R.id.for_fragments, tarifFragment, "FRAGMENT_TARIF")
                         .addToBackStack(null);
                 transaction.commit();
             }
@@ -125,11 +125,9 @@ public class FragmentTaksi extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
                         R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                        .add(R.id.for_fragments, newFragment, null);
-                if (issBack) {
-                    transaction.addToBackStack(null);
-                }
-                transaction.commit();
+                        .add(R.id.for_fragments, newFragment, "FRAGMENT_VIP")
+                   .addToBackStack(null)
+               .commit();
             }
         });
         init();
@@ -160,14 +158,6 @@ public class FragmentTaksi extends Fragment {
         inflater.inflate(R.menu.main2, menu);
         MenuItem item = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) item.getActionView();
-
-        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
-            @Override
-            public boolean onClose() {
-                listener.onClick(0);
-                return false;
-            }
-        });
 
         searchView.setOnSearchClickListener(new View.OnClickListener() {
             @Override

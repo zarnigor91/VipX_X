@@ -15,9 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
-import com.example.stajxml.App;
-import com.example.stajxml.GravitySnapHelper;
-import com.example.stajxml.LocaleHelper;
+import com.example.stajxml.app.App;
+import com.example.stajxml.app.LocaleHelper;
 import com.example.stajxml.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

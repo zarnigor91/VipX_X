@@ -10,7 +10,7 @@
     android:focusable="true">
 
     <ScrollView
-        android:background="@color/colorBlack"
+      android:background="@color/colorBlack"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="UselessParent">
@@ -81,7 +81,7 @@
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_ques"
                 android:layout_width="match_parent"
-                android:background="@color/colorWhite"
+
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/size9"
                 android:spinnerMode="dialog"

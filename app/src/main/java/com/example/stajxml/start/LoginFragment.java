@@ -17,10 +17,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.stajxml.App;
+import com.example.stajxml.app.App;
 import com.example.stajxml.HomeActivity;
-import com.example.stajxml.LocaleHelper;
-import com.example.stajxml.Prefs;
+import com.example.stajxml.app.LocaleHelper;
+import com.example.stajxml.app.Prefs;
 import com.example.stajxml.R;
 
 public class LoginFragment extends Fragment {
