@@ -28,7 +28,7 @@
     <string name="primenit">қабул қилиш</string>
     <string name="otmena">бекор қилиш</string>
     <string name="sum">сум</string>
-    <string name="ot">дан</string>
+    <string name="ot">%s-дан</string>
     <string name="dobro_pajalovat">Хуш келибсиз!</string>
     <string name="arenda_avto">МОШИНА ИЖАРАГА ОЛИШ ҲАЙДОВЧИСИ БИЛАН</string>
     <string name="login">Логин</string>
@@ -53,6 +53,7 @@
     <string name="phone_number">Телефон рақами</string>
     <string name="kommentari">Ҳайдовчи учун изоҳ қолдириш</string>
     <string name="otpravit">юбориш учун</string>
+    <string name="dan">дан</string>
 
 
 </resources>
