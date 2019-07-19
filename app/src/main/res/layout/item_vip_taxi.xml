@@ -91,7 +91,7 @@
                     android:paddingLeft="@dimen/size_3"
                     android:textColor="#f5d24a"
                     android:textSize="16sp"
-                    android:text="@string/dan"
+                    android:text="дан"
                     android:textStyle="bold" />
 
 

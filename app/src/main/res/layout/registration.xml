@@ -10,7 +10,7 @@
     android:focusable="true">
 
     <ScrollView
-      android:background="@color/colorGrey"
+        android:background="@color/colorBlack"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="UselessParent">
@@ -21,18 +21,19 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_name"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#FFAFB3AD"
                 android:layout_margin="@dimen/size9"
+                android:background="@drawable/rectangle_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tie_name"
-
+                    android:textColor="@color/colorWhite"
                     android:textColorHint="@color/colorRed"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -41,18 +42,19 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_surname"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/size9"
-
+                android:textColorHint="#FFAFB3AD"
+                 android:background="@drawable/rectangle_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tie_surname"
-
+                    android:textColor="@color/colorWhite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="surname" />
@@ -60,8 +62,9 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_tel"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:textColorHint="#FFAFB3AD"
+                 android:background="@drawable/rectangle_black"
+                style="@style/TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/size9"
@@ -71,38 +74,80 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tie_tel"
-
+                    android:textColor="@color/colorWhite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="tel number"
                     android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_email"
+                style="@style/TextInputLayout"
+                android:background="@drawable/rectangle_black"
+                android:layout_width="350dp"
+
+                android:textColorHint="#FFAFB3AD"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size9"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_tel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tie_email"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:hint="email"
+                    android:textColor="@color/colorWhite"
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="@color/colorRed" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/size8"
+                android:layout_height="@dimen/size8"
+                android:textColorHint="#FFAFB3AD"
+                android:background="@drawable/rectangle_black"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/email_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.489"
+                app:layout_constraintStart_toEndOf="@id/til_email"
+                app:layout_constraintTop_toBottomOf="@id/til_tel" />
+
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_ques"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
+                android:textColorHint="#FFDAE0D6"
                 android:layout_margin="@dimen/size9"
+                android:background="@drawable/rectangle_black"
                 android:spinnerMode="dialog"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_tel" />
+                app:layout_constraintTop_toBottomOf="@id/til_email" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_answer"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_black"
                 android:layout_margin="8dp"
-
+                android:textColorHint="#FFAFB3AD"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spinner_ques">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tie_answer"
-                    android:background="@color/colorWhite"
+                    style="@style/MyTextInputEditText"
+                    android:textColor="@color/colorWhite"
+                android:background="@color/colorWhite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="answer" />
@@ -110,17 +155,19 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_login"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/size9"
-
+                android:textColorHint="#FFAFB3AD"
+                android:background="@drawable/rectangle_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_answer">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tie_login"
+                    android:textColor="@color/colorWhite"
                     android:background="@color/colorWhite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -129,11 +176,12 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_pass1"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#FFAFB3AD"
                 android:layout_margin="@dimen/size9"
+                android:background="@drawable/rectangle_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_login"
@@ -141,7 +189,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tie_pass1"
-
+                    android:textColor="@color/colorWhite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="pass1"
@@ -150,8 +198,9 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_pass2"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/TextInputLayout"
+                android:textColorHint="#FFAFB3AD"
+                android:background="@drawable/rectangle_black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/size9"
@@ -162,7 +211,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tie_pass2"
-
+                     android:textColor="@color/colorWhite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColorHint="@color/colorRed"
@@ -172,7 +221,7 @@
 
 
             <Button
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="@dimen/size1"
                 android:id="@+id/registr_bt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
