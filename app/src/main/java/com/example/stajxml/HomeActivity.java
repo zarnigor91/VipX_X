@@ -238,7 +238,7 @@ public class HomeActivity extends BaseActivity
         navigationView.getMenu().getItem(1).setTitle(context.getResources().getString(R.string.menu_gallery));
         navigationView.getMenu().getItem(2).setTitle(context.getResources().getString(R.string.menu_slideshow));
         navigationView.getMenu().getItem(3).setTitle(context.getResources().getString(R.string.menu_tools));
-        navigationView.getMenu().getItem(0).setTitle(context.getResources().getString(R.string.menu_share));
+        navigationView.getMenu().getItem(4).setTitle(context.getResources().getString(R.string.menu_share));
 
 
     }
@@ -286,14 +286,14 @@ public class HomeActivity extends BaseActivity
 
     void checkLenguage() {
         if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")) {
-            tvUz.setTextColor(getResources().getColor(R.color.colorYellow));
+            tvUz.setTextColor(getResources().getColor(R.color.colorBlack));
             tvUz.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
-            tvRu.setTextColor(getResources().getColor(R.color.colorGrey));
+            tvRu.setTextColor(getResources().getColor(R.color.colorWhiteYel));
 
 
         } else {
-            tvUz.setTextColor(getResources().getColor(R.color.colorGrey));
-            tvRu.setTextColor(getResources().getColor(R.color.colorYellow));
+            tvUz.setTextColor(getResources().getColor(R.color.colorWhiteYel));
+            tvRu.setTextColor(getResources().getColor(R.color.colorBlack));
             tvRu.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         }
     }

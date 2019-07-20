@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#003C85</color>
-    <color name="colorPrimaryDark">#AFB3AD</color>
+    <color name="colorPrimaryDark">#EEECE4</color>
     <color name="colorBlack">#040505</color>
     <color name="colorBlack1">#141818</color>
     <color name="colorWhite">#fff</color>
-    <color name="colorGrey2">#E7E4E4</color>
+    <color name="colorGrey2">#6BF8E19B</color>
     <color name="colorGreen">#5BDA6B</color>
     <color name="colorAccent">#FFEB3B</color>
     <color name="colorYellow">#E6BC41</color>
@@ -14,5 +14,6 @@
     <color name="colorGrey1">#EBEBE5</color>
     <color name="colorRed">#FF0000</color>
     <color name="color">#868D8D</color>
+    <color name="colorWhiteYel">#EEECE4</color>
 </resources>
 
