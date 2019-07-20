@@ -1,6 +1,7 @@
 package com.example.stajxml.start;
 
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +26,8 @@ import com.example.stajxml.app.Prefs;
 public class RegistratsionFragment extends Fragment {
     String[] questions = new String[4];
     private EditText login_input, password_input, name_input, surName_input, telNumber_input,
-            answer_input, pass2_input;
-    private String login, password, name, surName, telNumber, question, answer, pass2;
+            answer_input, pass2_input, email_input;
+    private String login, password, name, surName, telNumber, question, answer, pass2,email;
     private Button RegisterButton;
     private Spinner spinner;
     private int index = 0;
@@ -47,6 +48,7 @@ public class RegistratsionFragment extends Fragment {
         surName_input = view.findViewById(R.id.tie_surname);
         pass2_input = view.findViewById(R.id.tie_pass2);
         telNumber_input = view.findViewById(R.id.tie_tel);
+        email_input=view.findViewById(R.id.tie_email);
         answer_input = view.findViewById(R.id.tie_answer);
         spinner = view.findViewById(R.id.spinner_ques);
 
@@ -77,6 +79,7 @@ public class RegistratsionFragment extends Fragment {
         password = password_input.getText().toString();
         name = name_input.getText().toString();
         surName = surName_input.getText().toString();
+        email=email_input.getText().toString();
         question = questions[index];
         pass2 = pass2_input.getText().toString();
         telNumber = telNumber_input.getText().toString();
@@ -131,6 +134,11 @@ public class RegistratsionFragment extends Fragment {
             telNumber_input.setError("incorrect number");
             valid = false;
         }
+//        if (email.isEmpty()|| !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+//            email_input.setError("wrong email id");
+//            valid=false;
+//
+//        }
         if (answer.isEmpty()) {
             answer_input.setError("empty answer");
             valid = false;

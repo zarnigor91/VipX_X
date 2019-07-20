@@ -24,7 +24,7 @@ import java.util.List;
 public class VipTaxiAdapter extends RecyclerView.Adapter<VipTaxiAdapter.VH> {
     private ArrayList<ModelVipTaksi> list;
     private ArrayList<ModelVipTaksi> newList;
-
+//    private ArrayList<ModelVipTaksi> sortList;
     private LayoutInflater inflater;
     private Context context;
     private IFilter filter;
@@ -41,6 +41,7 @@ public class VipTaxiAdapter extends RecyclerView.Adapter<VipTaxiAdapter.VH> {
         newList = (ArrayList<ModelVipTaksi>) list.clone();
         newList.addAll(list);
         filter = new FilterImpl(list);
+//        sortList=list;
 
     }
 
@@ -59,21 +60,6 @@ public class VipTaxiAdapter extends RecyclerView.Adapter<VipTaxiAdapter.VH> {
     @Override
     public int getItemCount() {
         return list.size();
-    }
-
-    public void update(List<ModelVipTaksi> newList1) {
-        newList1.addAll(list);
-        newList1.addAll(newList1);
-
-        final DiffCallback diffCallback = new DiffCallback(this.list, newList1);
-        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
-
-        list.clear();
-        this.list.addAll(newList);
-
-
-        diffResult.dispatchUpdatesTo(this);
-
     }
 
     public void searchWith(String newText) {
@@ -117,19 +103,39 @@ public class VipTaxiAdapter extends RecyclerView.Adapter<VipTaxiAdapter.VH> {
             ot = itemView.findViewById(R.id.tvOt);
             status = itemView.findViewById(R.id.car_status);
             time = itemView.findViewById(R.id.car_time);
+            dan=itemView.findViewById(R.id.dan);
 
 
         }
 
         public void bind(final ModelVipTaksi modelTaksi, final ItemClickListener listener) {
-            carImage.setImageResource(modelTaksi.getCarImage());
+            if(modelTaksi.getCarImage() == 1) {
+                carImage.setImageResource(R.drawable.elantra);
+            }
+            else if(modelTaksi.getCarImage() == 2) {
+                carImage.setImageResource(R.drawable.prado1);
+            }
+            else
+            if(modelTaksi.getCarImage() == 3) {
+                carImage.setImageResource(R.drawable.hyundai);
+            }
+            else if(modelTaksi.getCarImage() == 4) {
+                carImage.setImageResource(R.drawable.prado2);
+            }
+            else
+            if(modelTaksi.getCarImage() == 5) {
+                carImage.setImageResource(R.drawable.hyundai2);
+            }
+            else if(modelTaksi.getCarImage() == 6) {
+                carImage.setImageResource(R.drawable.prado3);
+            }
             status.setText(modelTaksi.getStatus());
             name.setText(modelTaksi.getName());
             price.setText(RjexNumber.IntToString(modelTaksi.getPrice()) + "");
             time.setText(modelTaksi.getTime());
             if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")) {
                 ot.setVisibility(View.GONE);
-                if (modelTaksi.getStatus().equals("бўш")) {
+                if (modelTaksi.getStatus().equals("bo`sh")) {
                     status.setBackground(context.getResources().getDrawable(R.drawable.status_background1));
 
                 } else {
@@ -143,6 +149,7 @@ public class VipTaxiAdapter extends RecyclerView.Adapter<VipTaxiAdapter.VH> {
                     }
                 });
             } else {
+                     dan.setVisibility(View.GONE);
                 if (modelTaksi.getStatus().equals("свободен")) {
                     status.setBackground(context.getResources().getDrawable(R.drawable.status_background1));
                 } else {

@@ -109,7 +109,7 @@
                     app:layout_constraintVertical_chainStyle="spread">
 
                     <TextView
-                        android:id="@+id/textLogin"
+                        android:id="@+id/textParol"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -146,11 +146,12 @@
                     app:layout_constraintTop_toBottomOf="@id/layout_for_edit">
 
                     <TextView
-                        android:id="@+id/prodoljit"
+                        android:id="@+id/voyti"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="end"
+                        android:layout_marginTop="8dp"
 
+                        android:gravity="end"
                         android:paddingTop="@dimen/size9"
                         android:paddingBottom="@dimen/size9"
                         android:text="@string/voyti"
@@ -170,7 +171,7 @@
                         android:paddingBottom="@dimen/size6"
                         android:src="@drawable/arraw_right2"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toRightOf="@id/prodoljit"
+                        app:layout_constraintLeft_toRightOf="@id/voyti"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 

@@ -5,7 +5,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/sob"
+            android:id="@+id/messag"
             android:icon="@drawable/ic_assignment_sobsheniya"
             android:title="@string/menu_home" />
         <item

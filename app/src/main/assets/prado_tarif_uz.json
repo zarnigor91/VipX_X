@@ -5,12 +5,12 @@
         "narx": "100000",
         "narxniKorinishi": true,
         "oplata": "200000",
-        "time": "вақтни узайтириш(1 соат)",
-        "vaqt": "2 соатгача"
+        "time": "vaqtni uzaytirish(1 soat)",
+        "vaqt": "2 soatgacha"
       }
     ],
-    "place": "соатлик ставка",
-    "tarif": " Тариф (Vip такси)"
+    "place": "soatlik stavka",
+    "tarif": " Ta`rif (Vip taksi)"
   },
   {
     "listNarx": [
@@ -18,26 +18,26 @@
         "narx": "100000",
         "narxniKorinishi": true,
         "oplata": "650000",
-        "time": "вақтни узайтириш(1 соат)",
-        "vaqt": "Кундузи (соат 9:00 дан 19:00 гача)"
+        "time": "vaqtni uzaytirish(1 soat)",
+        "vaqt": "Kunduzi (soat 9:00 dan 19:00 gacha)"
       },
       {
         "narx": "100000",
         "narxniKorinishi": true,
         "oplata": "200000",
-        "time": "вақтни узайтириш(1 soat)",
-        "vaqt": "Кечаси (соат 18:00 дан 08:00 гача)"
+        "time": "vaqtni uzaytirish(1 soat)",
+        "vaqt": "Kechasi (soat 18:00 dan 08:00 gacha)"
       },
       {
         "narx": "100000",
         "narxniKorinishi": true,
         "oplata": "100000",
-        "time": "вақтни узайтириш(1 соат)",
-        "vaqt": "Vip (соат 8:00 дан 23:00 гача)"
+        "time": "vaqtni uzaytirish(1 soat)",
+        "vaqt": "Vip (soat 8:00 dan 23:00 gacha)"
       }
     ],
     "place": "",
-    "tarif": " Тариф (Шахар Vip)"
+    "tarif": "Ta`rif (Shahar Vip)"
   },
   {
     "listNarx": [
@@ -45,12 +45,12 @@
         "narx": "100000",
         "narxniKorinishi": true,
         "oplata": "650000",
-        "time": "вақтни узайтириш(1 соат)",
-        "vaqt": "2 соатгача"
+        "time": "vaqtni uzaytirish(1 soat)",
+        "vaqt": "2 soatgacha"
       }
     ],
-    "place": "Aэрапот-отель, отель-аэрапорт",
-    "tarif": " Трансфер"
+    "place": "Aerapot-otel, otel-aerapot",
+    "tarif": " Transfer"
   },
   {
     "listNarx": [
@@ -58,12 +58,12 @@
         "narx": "100000",
         "narxniKorinishi": true,
         "oplata": "500000",
-        "time": "вақтни узайтириш(1 соат)",
-        "vaqt": "4 соатгача"
+        "time": "vaqtni uzaytirish(1 soat)",
+        "vaqt": "4 soatgacha"
       }
     ],
-    "place": "Тошкент шахар",
-    "tarif": " Тўй тарифи"
+    "place": "Toshkent shahar",
+    "tarif": "To`y ta`rifi"
   },
   {
     "listNarx": [
@@ -71,12 +71,12 @@
         "narx": "100000",
         "narxniKorinishi": true,
         "oplata": "150000",
-        "time": "вақтни узайтириш(1 соат)",
+        "time": "vaqtni uzaytirish(1 soat)",
         "vaqt": "2 соатгача"
       }
     ],
-    "place": "Тошкент шахар",
-    "tarif": " Vip шаҳар"
+    "place": "Toshkent shahar",
+    "tarif": " Vip shahar"
   },
   {
     "listNarx": [
@@ -85,59 +85,59 @@
         "narxniKorinishi": false,
         "oplata": "1700000",
         "time": "",
-        "vaqt": "Самарканд (1 кун)"
+        "vaqt": "Samarqand (1 kun)"
       },
       {
         "narx": "",
         "narxniKorinishi": false,
         "oplata": "3000000",
         "time": "",
-        "vaqt": "Самарканд-Бухора(2 кун)"
+        "vaqt": "Samarqand-Buxoro(2 kun)"
       },
       {
         "narx": "",
         "narxniKorinishi": false,
         "oplata": "3800000",
         "time": "",
-        "vaqt": "Самарканд-Бухора(5 кун)"
+        "vaqt": "Samarqand-Buxoro(5 kun)"
       },
       {
         "narx": "",
         "narxniKorinishi": false,
         "oplata": "2200000",
         "time": "",
-        "vaqt": "Фаргона(1 кун)"
+        "vaqt": "Farg`ona(1 kun)"
       },
       {
         "narx": "",
         "narxniKorinishi": false,
         "oplata": "2200000",
         "time": "",
-        "vaqt": "Наманган(1 кун)"
+        "vaqt": "Namangan(1 kun)"
       },
       {
         "narx": "",
         "narxniKorinishi": false,
         "oplata": "1700000",
         "time": "",
-        "vaqt": "Қўқон(1 кун)"
+        "vaqt": "Qo`qon(1 kun)"
       },
       {
         "narx": "",
         "narxniKorinishi": false,
         "oplata": "3000000",
         "time": "",
-        "vaqt": "Андижон(1 кун)"
+        "vaqt": "Andijon(1 kun)"
       },
       {
         "narx": "",
         "narxniKorinishi": false,
         "oplata": "3400000",
         "time": "",
-        "vaqt": "Водийга сайр қилиш(2 кун)"
+        "vaqt": "Vodiyga sayr qilish(2 kun)"
       }
     ],
     "place": "",
-    "tarif": "Тариф (Шаҳар Vip)"
+    "tarif": "Ta`rif (Shahar Vip)"
   }
 ]

@@ -1,50 +1,50 @@
 [
   {
-    "car_image": 2131165313,
+    "car_image": 1,
     "name": "Tayota Prado VX 4л\"",
     "price": 210000,
     "status": "свободен",
     "time": "Минимум часов-2",
-    "width": "4 человека"
+    "width": 4
   },
   {
-    "car_image": 2131165313,
+    "car_image": 2,
     "name": "Hyundai Grand Starex lux ",
     "price": 250000,
     "status": "занят",
     "time": "Минимум часов-2",
-    "width": "8 человека"
+    "width": 8
   },
   {
-    "car_image": 2131165314,
+    "car_image": 3,
     "name": "Prado 2018 Vx 3л",
     "price": 230000,
     "status": "занят",
     "time": "Минимум часов-2",
-    "width": "8 человека"
+    "width": 8
   },
   {
-    "car_image": 2131165314,
+    "car_image": 4,
     "name": "Hyundai 2019 Starex",
     "price": 240000,
     "status": "свободен",
     "time": "Минимум часов-2",
-    "width": "4 человека"
+    "width": 4
   },
   {
-    "car_image": 2131165370,
+    "car_image": 5,
     "name": "Prado 2019 Vx 2л ",
     "price": 200000,
     "status": "занят",
     "time": "Минимум часов-2",
-    "width": "8 человека"
+    "width": 8
   },
   {
-    "car_image": 2131165315,
+    "car_image": 6,
     "name": "Hyundai 2019 Starex 2",
     "price": 150000,
     "status": "свободен",
     "time": "Минимум часов-2",
-    "width": "4 человека"
+    "width": 4
   }
 ]

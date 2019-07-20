@@ -15,10 +15,10 @@ public class ModelVipTaksi {
     private int price;
     private String name;
     private String time;
-    private String width;
+    private int width;
 
 
-    public ModelVipTaksi(int carImage, String status, String name, int price, String time, String width) {
+    public ModelVipTaksi(int carImage, String status, String name, int price, String time, int width) {
         this.carImage = carImage;
         this.status = status;
 
@@ -50,7 +50,7 @@ public class ModelVipTaksi {
         return time;
     }
 
-    public String getWidth() {
+    public int getWidth() {
         return width;
     }
 

@@ -1,5 +1,6 @@
 package com.example.stajxml.vipTaksi;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -51,6 +53,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
     private ArrayList<ModelVipTaksi> listGrid;
     private VipTaxiAdapter adapterVip;
     private SearchView searchView = null;
+    private   int count=0;
 
     private SearchView.OnQueryTextListener queryTextListener;
 
@@ -111,7 +114,7 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
                 Button btPrimenit = dialogView.findViewById(R.id.primenit);
                 alertDialog.setView(dialogView);
                 final AlertDialog dialog = alertDialog.create();
-
+count++;
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -137,87 +140,41 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
                         int id1 = radioGroupBole.getCheckedRadioButtonId();
 
                         if (id == R.id.senaUbivayu && id1 == R.id.radioBole) {
-
-                            VipTaksiFragment sortDialog = new VipTaksiFragment();
-                            a = 1;
-                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                                    R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
-                            transaction.addToBackStack(null);
-                            transaction.commit();
+                            Collections.sort(listGrid, new SortedDownWide());
+                            adapterVip.notifyDataSetChanged();
                         } else if (id == R.id.senaUbivayu && id1 == R.id.radioMene) {
-                            VipTaksiFragment sortDialog = new VipTaksiFragment();
-                            a = 2;
-                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                                    R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
-                            transaction.addToBackStack(null);
-                            transaction.commit();
+                            Collections.sort(listGrid, new SortedDownSmall());
+                            adapterVip.notifyDataSetChanged();
                         } else if (id == R.id.senaVozras && id1 == R.id.radioMene) {
-                            VipTaksiFragment sortDialog = new VipTaksiFragment();
-                            a = 3;
-                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                                    R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
-                            transaction.addToBackStack(null);
-                            transaction.commit();
+                            Collections.sort(listGrid, new SortedUpSmall());
+                            adapterVip.notifyDataSetChanged();
+
                         } else if (id == R.id.senaVozras && id1 == R.id.radioBole) {
-                            VipTaksiFragment sortDialog = new VipTaksiFragment();
-                            a = 4;
-                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                                    R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
-                            transaction.addToBackStack(null);
-                            transaction.commit();
+                            Collections.sort(listGrid, new SortedUpWide());
+                            adapterVip.notifyDataSetChanged();
                         } else if (id == R.id.senaVozras) {
-                            a = 6;
-                            VipTaksiFragment sortDialog = new VipTaksiFragment();
-                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                                    R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
-                            transaction.addToBackStack(null);
-                            transaction.commit();
+                            Collections.sort(listGrid, new SortedPriceUp());
+                            adapterVip.notifyDataSetChanged();
 
                         } else if (id == R.id.senaUbivayu) {
-                            VipTaksiFragment sortDialog = new VipTaksiFragment();
-                            a = 5;
-                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                                    R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
-                            transaction.addToBackStack(null);
-                            transaction.commit();
+                            Collections.sort(listGrid, new SortPriceDown());
+                            adapterVip.notifyDataSetChanged();
                         } else if (id == R.id.radioMene) {
-                            VipTaksiFragment sortDialog = new VipTaksiFragment();
-                            a = 7;
-                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                                    R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
-                            transaction.addToBackStack(null);
-                            transaction.commit();
+                            Collections.sort(listGrid, new SortedSmall());
+                            adapterVip.notifyDataSetChanged();
                         } else if (id == R.id.radioBole) {
-                            VipTaksiFragment sortDialog = new VipTaksiFragment();
-                            a = 8;
-                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right,
-                                    R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                                    .replace(R.id.for_fragments, sortDialog, "FRAGMENT_VIP");
-                            transaction.addToBackStack(null);
-                            transaction.commit();
+                            Collections.sort(listGrid, new SortedWide());
+                            adapterVip.notifyDataSetChanged();
                         }
                         dialog.dismiss();
+
+
                     }
                 });
 
             }
         });
-        sortType(a);
+
         rvtaksi.setAdapter(adapterVip);
 
     }
@@ -252,30 +209,6 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
     }
 
 
-    public void sortType(int a) {     //sorting function
-
-
-        if (a == 1) {
-            Collections.sort(listGrid, new SortedDownWide());
-        } else if (a == 2) {
-            Collections.sort(listGrid, new SortedDownSmall());
-        } else if (a == 3) {
-            Collections.sort(listGrid, new SortedUpSmall());
-        } else if (a == 4) {
-            Collections.sort(listGrid, new SortedUpWide());
-        } else if (a == 5) {
-            Collections.sort(listGrid, new SortPriceDown());
-        }
-        if (a == 6) {
-            Collections.sort(listGrid, new SortedPriceUp());
-        } else if (a == 7) {
-            Collections.sort(listGrid, new SortedSmall());
-        } else if (a == 8) {
-            Collections.sort(listGrid, new SortedWide());
-        }
-        Log.d("TTT", "SortedPriceUp");
-    }
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {   // search
         menu.clear();
@@ -307,6 +240,12 @@ public class VipTaksiFragment extends Fragment implements SearchView.OnCloseList
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+//    @Override
+//    public void onDetach() {
+//        super.onDetach();
+//        getActivity().getSupportFragmentManager().popBackStack("0", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+//
+//    }
 
     @Override
     public boolean onClose() {

@@ -1,5 +1,6 @@
 package com.example.stajxml;
 
+import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.stajxml.app.App;
+import com.example.stajxml.app.LocaleHelper;
 import com.example.stajxml.taksi.FragmentTaksi;
 import com.example.stajxml.tarif.TarifFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -25,16 +28,20 @@ import com.google.android.material.navigation.NavigationView;
 public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener,
         SearchView.OnCloseListener, IOnclickListener {
-    DrawerLayout drawer;
-    Toolbar toolbar;
-    NavigationView navigationView;
-    TextView tvUz, tvRu, tvReg, tvViyte;
-    ImageView imageView;
+   private DrawerLayout drawer;
+   private Toolbar toolbar;
+   private NavigationView navigationView;
+    private TextView tvUz, tvRu, tvReg, tvViyte,  user, lover;
+
+
+     private  ImageView imageView;
+    private Context context;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        App.getInstance().updateRes();
         setContentView(R.layout.activity_main2);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -46,17 +53,31 @@ public class HomeActivity extends BaseActivity
         tvRu = header.findViewById(R.id.tvRus);
         tvUz = header.findViewById(R.id.tvUz);
         tvViyte = header.findViewById(R.id.tvViyte);
+        user=header.findViewById(R.id.user);
+        lover=header.findViewById(R.id.lover);
 
         tvUz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 uzSlect();
+                FragmentTaksi fragmentTaksi = new FragmentTaksi();
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right, R.anim.enter_left_to_right, R.anim.exit_left_to_right)
+                        .replace(R.id.for_fragments, fragmentTaksi, "FRAGMENT_TAKSI").addToBackStack(null).commit();
+
+
             }
         });
         tvRu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rusSlect();
+                FragmentTaksi fragmentTaksi = new FragmentTaksi();
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right, R.anim.enter_left_to_right, R.anim.exit_left_to_right)
+                        .replace(R.id.for_fragments, fragmentTaksi, "FRAGMENT_TAKSI").commit();
+
+
             }
         });
         tvViyte.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +101,8 @@ public class HomeActivity extends BaseActivity
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_left_to_right, R.anim.enter_left_to_right, R.anim.exit_left_to_right)
-                    .add(R.id.for_fragments, fragmentTaksi,"FRAGMENT_TAKSI").addToBackStack(null).commit();
+                    .add(R.id.for_fragments, fragmentTaksi, "FRAGMENT_TAKSI").commit();
+
         }
 
         initNavigationMenu();
@@ -90,13 +112,15 @@ public class HomeActivity extends BaseActivity
         fragmentTaksi.setListener(new FragmentTaksi.SearchViewListener() {
             @Override
             public void onClick(int positon) {
-                if (positon == 0) {
+                if (positon == 1) {
                     findViewById(R.id.image_logo).setVisibility(View.VISIBLE);
                 } else {
                     findViewById(R.id.image_logo).setVisibility(View.INVISIBLE);
                 }
             }
         });
+
+        checkLenguage();
 
     }
 
@@ -171,7 +195,7 @@ public class HomeActivity extends BaseActivity
             transaction.addToBackStack(null);
             transaction.commit();
 
-        } else if (id == R.id.sob) {
+        } else if (id == R.id.messag) {
 
         } else if (id == R.id.zak) {
 
@@ -185,6 +209,7 @@ public class HomeActivity extends BaseActivity
     }
 
     private void initNavigationMenu() {
+
         ActionBarDrawerToggle actionBarDrawerToggle =
                 new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open, R.string.close);
         actionBarDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
@@ -195,16 +220,25 @@ public class HomeActivity extends BaseActivity
                 else drawer.openDrawer(GravityCompat.START);
             }
         });
-
         drawer.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-
         navigationView.setNavigationItemSelectedListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
+
+    }
+
+    private void setResourceString() {
+       user.setText(context.getResources().getString(R.string.demo_polzavatel));
+        lover.setText(context.getResources().getString(R.string.passajir));
+        navigationView.getMenu().getItem(0).setTitle(context.getResources().getString(R.string.menu_home));
+        navigationView.getMenu().getItem(1).setTitle(context.getResources().getString(R.string.menu_gallery));
+        navigationView.getMenu().getItem(2).setTitle(context.getResources().getString(R.string.menu_slideshow));
+        navigationView.getMenu().getItem(3).setTitle(context.getResources().getString(R.string.menu_tools));
+        navigationView.getMenu().getItem(0).setTitle(context.getResources().getString(R.string.menu_share));
 
 
     }
@@ -214,12 +248,23 @@ public class HomeActivity extends BaseActivity
         tvRu.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         tvRu.setTextColor(getResources().getColor(R.color.colorBlack));
 
+        context = LocaleHelper.setLocale(this, "uz");
+        App.getInstance().updateRes();
+        setResourceString();
+        initNavigationMenu();
+
+
     }
 
     void rusSlect() {
         tvUz.setTextColor(getResources().getColor(R.color.colorBlack));
         tvRu.setTextColor(getResources().getColor(R.color.colorWhite));
         tvRu.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+
+        context = LocaleHelper.setLocale(this, "ru");
+        App.getInstance().updateRes();
+        setResourceString();
+        initNavigationMenu();
     }
 
 
@@ -232,10 +277,24 @@ public class HomeActivity extends BaseActivity
 
     @Override
     public void onClick(int positon) {
-        if (positon == 0) {
+        if (positon == 1) {
             findViewById(R.id.image_logo).setVisibility(View.INVISIBLE);
         } else {
             findViewById(R.id.image_logo).setVisibility(View.VISIBLE);
+        }
+    }
+
+    void checkLenguage() {
+        if (LocaleHelper.getLanguage(App.getInstance()).equals("uz")) {
+            tvUz.setTextColor(getResources().getColor(R.color.colorYellow));
+            tvUz.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+            tvRu.setTextColor(getResources().getColor(R.color.colorGrey));
+
+
+        } else {
+            tvUz.setTextColor(getResources().getColor(R.color.colorGrey));
+            tvRu.setTextColor(getResources().getColor(R.color.colorYellow));
+            tvRu.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         }
     }
 }

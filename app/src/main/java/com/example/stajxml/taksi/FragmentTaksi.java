@@ -109,7 +109,7 @@ public class FragmentTaksi extends Fragment {
         zagruzitVse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adapterVip.update(listGrid);
+//                adapterVip.update(listGrid);
                 adapterVip.update1(listGrid);     // upload again
                 Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show();
 
@@ -158,6 +158,7 @@ public class FragmentTaksi extends Fragment {
         inflater.inflate(R.menu.main2, menu);
         MenuItem item = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) item.getActionView();
+
 
         searchView.setOnSearchClickListener(new View.OnClickListener() {
             @Override
